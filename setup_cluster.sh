@@ -20,7 +20,7 @@ NUM_NODES=2
 gcloud config set project $PROJECTID
 gcloud services enable container.googleapis.com  # To enable the Kubernetes Engine API
 
-    # --machine-type=n1-standard-2 --num-nodes=$NUM_NODES \ 
+    # --machine-type=n1-standard-2 --num-nodes=$NUM_NODES \
     # --node-labels=hub.jupyter.org/node-purpose=core \
 
 
@@ -32,7 +32,7 @@ gcloud container clusters create $CLUSTER_NAME --zone=$ZONE \
     --enable-vertical-pod-autoscaling \
     --enable-autoupgrade --enable-autorepair --max-surge-upgrade=1 \
     --enable-stackdriver-kubernetes
-    
+
 
 
 

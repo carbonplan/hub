@@ -20,8 +20,8 @@ pangeo:
 
     singleuser:
       image:
-        name: pangeo/base-notebook
-        tag: latest
+        name: pangeo/pangeo-notebook
+        tag: 2020.05.01
       cpu:
         limit: 2
         guarantee: 1
