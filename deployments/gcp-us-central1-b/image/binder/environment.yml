@@ -1,0 +1,41 @@
+name: carbonplan
+channels:
+  - conda-forge
+dependencies:
+  - python=3.7
+  - altair
+  - altair_data_server
+  - astropy
+  - bottleneck
+  - cartopy
+  - cftime
+  - h5netcdf
+  - intake
+  - intake-xarray
+  - matplotlib
+  - nc-time-axis
+  - netcdf4
+  - numcodecs
+  - numpy
+  - pandas
+  - pydap
+  - pyproj
+  - pyresample
+  - pystan
+  - pytest
+  - rasterio
+  - richdem
+  - rio-cogeo
+  - scikit-image
+  - scikit-learn
+  - scipy
+  - seaborn
+  - tqdm
+  - xarray
+  - xpublish
+  - zarr
+  - pip
+  - pip:
+      - showit
+      - numbagg
+      - git+https://github.com/jhamman/treeplan@cloud_reorg

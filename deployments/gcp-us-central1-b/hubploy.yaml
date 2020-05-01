@@ -1,0 +1,17 @@
+images:
+  image_name: gcr.io/carbonplan/hub-notebook
+  image_config_path: pangeo.jupyterhub.singleuser.image
+  registry:
+    provider: gcloud
+    gcloud:
+      project: carbonplan
+      service_key: gcloud-service-key.json
+
+cluster:
+  provider: gcloud
+  gcloud:
+    project: carbonplan
+    service_key: gcloud-service-key.json
+    cluster: hub
+    zone: us-central1-b
+
