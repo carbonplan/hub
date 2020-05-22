@@ -3,6 +3,7 @@ channels:
   - conda-forge
 dependencies:
   - python=3.7
+  - pangeo-notebook=2020.05.10
   - altair
   - altair_data_server
   - astropy
@@ -38,4 +39,5 @@ dependencies:
   - pip:
       - showit
       - numbagg
-      - git+https://github.com/jhamman/treeplan@cloud_reorg
+    #   - git+git://github.com/jhamman/treeplan.git@cloud_reorg
+    #   - git+git://github.com/jhamman/carbonplan-styles.git
