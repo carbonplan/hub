@@ -21,3 +21,7 @@ pangeo:
         dask-gateway:
           # This makes the gateway available at ${HUB_URL}/services/dask-gateway
           url: "http://traefik-staging-dask-gateway.staging"
+      extraEnv:
+        OAUTH2_AUTHORIZE_URL: "https://carbonplan.auth0.com/authorize"
+        OAUTH2_TOKEN_URL: "https://carbonplan.auth0.com/oauth/token"
+        OAUTH_CALLBACK_URL: "https://staging.hub.carbonplan.org/hub/oauth_callback"
