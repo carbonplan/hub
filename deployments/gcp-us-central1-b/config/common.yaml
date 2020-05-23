@@ -75,7 +75,7 @@ pangeo:
         - name: custom-templates
           gitRepo:
             repository: "https://github.com/carbonplan/carbonplan-custom-jupyterhub-templates.git"
-            revision: "ff6a601ac77cb153727fb2c98332ffb557ecb8f6"
+            revision: "f1b0d119048cff3c87e02d25aa4faab440a6f4ed"
       extraVolumeMounts:
         - mountPath: /usr/local/share/jupyterhub/custom_templates
           name: custom-templates
