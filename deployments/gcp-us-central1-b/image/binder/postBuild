@@ -1,6 +1,7 @@
 #!/bin/bash
 
-mkdir -p ${KERNEL_PYTHON_PREFIX}/etc/dask
-cp binder/dask_config.yaml ${KERNEL_PYTHON_PREFIX}/etc/dask/dask.yaml
+source activate notebook
+
+jupyter labextension install --debug -y --minimize False dask-labextension @jupyter-widgets/jupyterlab-manager
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"

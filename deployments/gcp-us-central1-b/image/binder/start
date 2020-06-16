@@ -1,7 +1,12 @@
-#!/usr/bin/env bash
+#!/bin/bash -l
 
-export DASK_ROOT_CONFIG=/srv/repo/binder/dask_config.yaml
+# ==== ONLY EDIT WITHIN THIS BLOCK =====
 
-cd ${HOME}
+export PANGEO_ENV="carbonplan-gcp-us-cental-1"
+export SCRATCH="gs://carbonplan-scratch"
+export INTAKE_PATH="https://raw.githubusercontent.com/carbonplan/data/master/intake-catalogs/master.yaml"
+export INTAKE_PERSIST_PATH="${SCRATCH}/intake-persist/${JUPYTERHUB_USER}/"
+
+# ==== ONLY EDIT WITHIN THIS BLOCK =====
 
 exec "$@"
