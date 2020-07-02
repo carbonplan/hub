@@ -28,7 +28,7 @@ jobs:
         pip install -r requirements.txt
 
     - name: Determine range of commits we are building
-      run: echo ::set-env name=COMMIT_RANGE::${{ github.event.before }}..""
+      run: echo ::set-env name=COMMIT_RANGE::${{ github.event.before }}""
 
     - name: Test building gcp-us-central1-b image if needed
       run: hubploy build gcp-us-central1-b --commit-range ${COMMIT_RANGE}
