@@ -1,7 +1,7 @@
-name: Build
+name: Deploy
 on:
   push:
-    branches-ignore:
+    branches:
       - staging
       - prod
 
@@ -34,12 +34,6 @@ jobs:
     - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
       with:
         version: '290.0.1'
-
-    - name: Determine range of commits we are building
-      run: echo ::set-env name=COMMIT_RANGE::${{ github.event.before }}""
-
-    - name: Test building gcp-us-central1-b image if needed
-      run: hubploy build gcp-us-central1-b --commit-range ${COMMIT_RANGE}
 
     - name: Unlock secrets
       uses: sliteteam/github-action-git-crypt-unlock@1.0.2
