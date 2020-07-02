@@ -1,0 +1,66 @@
+name: Build
+on:
+  push:
+    branches-ignore:
+      - staging
+      - prod
+
+jobs:
+  deploy:
+    if: github.actor == 'repo-owner'
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Install base apt packages
+      run: |
+        sudo apt-get update --yes -qq
+        sudo apt-get install --yes -qq git-crypt jq golang-go
+
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0  # 0 indicates all history.
+
+    - name: setup python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.7'
+
+    - name: Install dependencies
+      run: |
+        python3 -m venv venv
+        source venv/bin/activate
+        pip install --upgrade -r requirements.txt
+
+        curl -sSL https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-226.0.0-linux-x86_64.tar.gz | tar -C venv/ -xzf -
+
+        echo "::add-path::${GITHUB_WORKSPACE}/venv/google-cloud-sdk/bin"
+
+    - name: Determine range of commits we are building
+      run: echo ::set-env name=COMMIT_RANGE::${{ github.event.before }}""
+
+    - name: Test building gcp-us-central1-b image if needed
+      run: hubploy build gcp-us-central1-b --commit-range ${COMMIT_RANGE}
+
+    - name: Unlock secrets
+      uses: sliteteam/github-action-git-crypt-unlock@1.0.2
+      env:
+        GIT_CRYPT_KEY: ${{ secrets.GIT_CRYPT_KEY }}
+
+    - name: Build gcp-us-central1-b image if needed
+      timeout-minutes: 120
+      run: hubploy build gcp-us-central1-b --check-registry --push
+
+    - name: Install helm
+      run: |
+        curl https://get.helm.sh/helm-v3.1.2-linux-amd64.tar.gz | tar -xzf -
+        sudo mv linux-amd64/helm /usr/local/bin
+
+        helm version
+        helm repo add pangeo https://pangeo-data.github.io/helm-chart/
+        helm repo add jupyterhub https://jupyterhub.github.io/helm-chart/
+        helm repo add dask-gateway https://dask.org/dask-gateway-helm-repo/
+        helm repo update
+
+    - name: Deploy gcp-us-central1-b
+      run: hubploy deploy gcp-us-central1-b pangeo-deploy ${GITHUB_REF##*/} --cleanup-on-fail --namespace ${GITHUB_REF##*/}

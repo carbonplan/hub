@@ -2,7 +2,8 @@ name: Build
 on:
   push:
     branches:
-      - master  # TODO: staging/prod
+      - staging
+      - prod
 
 jobs:
   build:
@@ -27,7 +28,10 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        pip install --upgrade -r requirements.txt
+
+        curl -sSL https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-226.0.0-linux-x86_64.tar.gz | tar -C venv/ -xzf -
+
 
     - name: Determine range of commits we are building
       run: echo ::set-env name=COMMIT_RANGE::${{ github.event.before }}""
