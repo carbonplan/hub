@@ -28,13 +28,12 @@ jobs:
 
     - name: Install dependencies
       run: |
-        python3 -m venv venv
-        source venv/bin/activate
+        python -m pip install --upgrade pip
         pip install --upgrade -r requirements.txt
 
-        curl -sSL https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-226.0.0-linux-x86_64.tar.gz | tar -C venv/ -xzf -
-
-        echo "::add-path::${GITHUB_WORKSPACE}/venv/google-cloud-sdk/bin"
+    - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+      with:
+        version: '290.0.1'
 
     - name: Determine range of commits we are building
       run: echo ::set-env name=COMMIT_RANGE::${{ github.event.before }}""

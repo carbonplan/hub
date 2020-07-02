@@ -27,8 +27,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        python3 -m venv venv
-        source venv/bin/activate
+        python -m pip install --upgrade pip
         pip install --upgrade -r requirements.txt
 
     - name: Determine range of commits we are building
