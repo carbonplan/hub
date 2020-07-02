@@ -55,4 +55,6 @@ jobs:
         helm repo update
 
     - name: Deploy gcp-us-central1-b
-      run: hubploy deploy gcp-us-central1-b pangeo-deploy ${GITHUB_REF##*/} --cleanup-on-fail --namespace ${GITHUB_REF##*/}
+      run: |
+        echo "hubploy deploy --cleanup-on-fail --namespace ${GITHUB_REF##*/} gcp-us-central1-b pangeo-deploy ${GITHUB_REF##*/}"
+        hubploy deploy --cleanup-on-fail --namespace ${GITHUB_REF##*/} gcp-us-central1-b pangeo-deploy ${GITHUB_REF##*/}
