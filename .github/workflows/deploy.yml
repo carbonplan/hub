@@ -7,7 +7,6 @@ on:
 
 jobs:
   deploy:
-    if: github.actor == 'repo-owner'
     runs-on: ubuntu-latest
     steps:
 
