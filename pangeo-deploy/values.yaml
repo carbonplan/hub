@@ -35,12 +35,13 @@ pangeo:
       serviceAccountName: pangeo
 
     prePuller:
-      hook:
-        enabled: false
+      continuous:
+        enabled: true
 
     scheduling:
       userScheduler:
         enabled: true
+        replicas: 1
       podPriority:
         enabled: true
       userPlaceholder:

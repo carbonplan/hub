@@ -2,15 +2,18 @@ name: carbonplan
 channels:
   - conda-forge
 dependencies:
-  - pangeo-notebook  #=2020.05.10
+  - pangeo-notebook=2020.06.18
   - altair
   - altair_data_server
   - astropy
   - awscli
   - boto3
+  - bokeh <2.1
   - bottleneck
   - cartopy
   - cftime
+  - gdal=2.4.2
+  - libgdal=2.4.2
   - gcsfs
   - geopandas
   - geoviews
@@ -19,6 +22,7 @@ dependencies:
   - hvplot
   - intake
   - intake-esm
+  - intake-geopandas
   - intake-stac
   - intake-xarray
   - ipykernel
@@ -41,7 +45,7 @@ dependencies:
   - pystan
   - pytest
   - python-graphviz
-  - rasterio
+  - rasterio=1.0.25
   - richdem
   - rio-cogeo
   - rioxarray
