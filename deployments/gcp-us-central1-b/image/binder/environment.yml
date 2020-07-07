@@ -12,7 +12,7 @@ dependencies:
   - bottleneck
   - cartopy
   - cftime
-  - cython =0.28
+  - cython =0.28  # for vtzero
   - gdal=2.4.2
   - libgdal=2.4.2
   - fastparquet
@@ -25,6 +25,7 @@ dependencies:
   - intake
   - intake-esm
   - intake-geopandas
+  - intake-parquet
   - intake-stac
   - intake-xarray
   - ipykernel
