@@ -1,0 +1,6 @@
+version: 2
+updates:
+  - package-ecosystem: "docker"
+    directory: "deployments/gcp-us-central1-b/image/binder"
+    schedule:
+      interval: "daily"

@@ -12,6 +12,7 @@ dependencies:
   - bottleneck
   - cartopy
   - cftime
+  - cython =0.28
   - gdal=2.4.2
   - libgdal=2.4.2
   - fastparquet
@@ -56,6 +57,7 @@ dependencies:
   - scikit-learn
   - scipy
   - seaborn
+  - tippecanoe
   - tqdm
   - xarray
   - xpublish
@@ -65,5 +67,7 @@ dependencies:
   - pip:
       - showit
       - numbagg
+      - vtzero
+      - rio-tiler-mvt
     #   - git+git://github.com/jhamman/treeplan.git@cloud_reorg
     #   - git+git://github.com/jhamman/carbonplan-styles.git
