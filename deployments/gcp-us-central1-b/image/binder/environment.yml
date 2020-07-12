@@ -60,7 +60,7 @@ dependencies:
   - seaborn
   - tippecanoe
   - tqdm
-  - xarray
+  - xarray>=0.16
   - xpublish
   - yarn
   - zarr
