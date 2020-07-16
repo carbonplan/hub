@@ -1,6 +1,6 @@
 # CarbonPlan JupyterHub
 
-![Build](https://github.com/carbonplan/hub/workflows/Build/badge.svg)
+![Deploy](https://github.com/carbonplan/hub/workflows/Deploy/badge.svg)
 ![status](https://badgen.net/uptime-robot/status/m784948171-ed6b2fa5f22e060d1b5ec6ff)
 ![uptime](https://badgen.net/uptime-robot/month/m784948171-ed6b2fa5f22e060d1b5ec6ff)
 
