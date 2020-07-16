@@ -1,12 +1,8 @@
 name: Build
 on:
-  push:
-    branches-ignore:
-      - staging
-      - prod
   pull_request:
-    branches:
-      - '*'
+    branches-ignore:
+    - prod
 
 jobs:
   build:
