@@ -4,3 +4,11 @@ updates:
     directory: "deployments/gcp-us-central1-b/image/binder"
     schedule:
       interval: "daily"
+  - package-ecosystem: pip
+    directory: "/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
