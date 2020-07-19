@@ -9,7 +9,6 @@
 
 [![GitHub][github-badge]][github]
 ![Build Status][]
-![dependabot][]
 ![MIT License][]
 ![status][]
 ![uptime][]
@@ -18,7 +17,6 @@
 [github]: https://github.com/carbonplan/hub
 [github-badge]: https://flat.badgen.net/badge/-/github?icon=github&label
 [build status]: https://flat.badgen.net/github/checks/carbonplan/hub/prod
-[dependabot]: https://flat.badgen.net/dependabot/carbonplan/hub?icon=dependabot
 [mit license]: https://flat.badgen.net/badge/license/MIT/blue
 [status]: https://flat.badgen.net/uptime-robot/status/m784948171-ed6b2fa5f22e060d1b5ec6ff
 [uptime]: https://flat.badgen.net/uptime-robot/month/m784948171-ed6b2fa5f22e060d1b5ec6ff
