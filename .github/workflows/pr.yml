@@ -17,7 +17,8 @@ jobs:
     #       git reset --hard staging
       - name: get commits
         run: |
-          COMMITS=$(git log --oneline --no-merges prod..staging --)
+          echo $(git branch -a)
+          COMMITS=$(git log --oneline --no-merges prod...staging --)
           echo "::set-env name=COMMITS::$COMMITS"
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v2
