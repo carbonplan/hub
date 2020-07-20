@@ -1,0 +1,32 @@
+name: staging to prod
+on:
+  push:
+    branches:
+      - staging
+jobs:
+  stagingToProd:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: prod
+    #   - name: Reset promotion branch
+    #     run: |
+    #       git fetch origin staging:staging
+    #       git reset --hard staging
+      - name: get commits
+        run: |
+          COMMITS=$(git log upstream/prod..upstream/staging --oneline --no-merges)
+          echo "::set-env name=COMMITS::$COMMITS"
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v2
+        with:
+          branch: staging
+          title: prod <- staging
+          body: |
+            Updates `prod` from `staging`.
+
+            <details>
+            <summary>Commits</summary>
+            ${COMMITS}
+            </details>
