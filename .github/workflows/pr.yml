@@ -10,6 +10,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: prod
+          fetch-depth: 0  # 0 indicates all history for all branches and tags.
     #   - name: Reset promotion branch
     #     run: |
     #       git fetch origin staging:staging
