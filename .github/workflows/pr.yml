@@ -22,7 +22,7 @@ jobs:
           destination_branch: "prod"
           pr_title: prod <- staging
           pr_body: |
-            Updates `prod` from `staging`.
+            Updates <code>prod</code> from <code>staging</code>.
 
             <details>
             <summary>Commits</summary>
