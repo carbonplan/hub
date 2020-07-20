@@ -28,3 +28,4 @@ jobs:
             <summary>Commits</summary>
             ${COMMITS}
             </details>
+          github_token: ${{ secrets.GITHUB_TOKEN }}
