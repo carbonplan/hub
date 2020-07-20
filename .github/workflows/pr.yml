@@ -11,21 +11,18 @@ jobs:
         with:
           ref: prod
           fetch-depth: 0  # 0 indicates all history for all branches and tags.
-    #   - name: Reset promotion branch
-    #     run: |
-    #       git fetch origin staging:staging
-    #       git reset --hard staging
       - name: get commits
         run: |
           echo $(git branch -a)
           COMMITS=$(git log --oneline --no-merges remotes/origin/prod...remotes/origin/staging --)
           echo "::set-env name=COMMITS::$COMMITS"
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v2
+      - name: pull-request
+        uses: repo-sync/pull-request@v2
         with:
-          branch: staging
-          title: prod <- staging
-          body: |
+          source_branch: "staging"
+          destination_branch: "prod"
+          pr_title: prod <- staging
+          pr_body: |
             Updates `prod` from `staging`.
 
             <details>
