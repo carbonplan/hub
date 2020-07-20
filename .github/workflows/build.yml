@@ -33,4 +33,10 @@ jobs:
       run: echo ::set-env name=COMMIT_RANGE::${{ github.event.before }}""
 
     - name: Test building gcp-us-central1-b image if needed
-      run: hubploy build gcp-us-central1-b --commit-range ${COMMIT_RANGE}
+      run: |
+        if [ -z "${COMMIT_RANGE}" ]
+        then
+            echo hubploy build gcp-us-central1-b
+        else
+            echo hubploy build gcp-us-central1-b --commit-range ${COMMIT_RANGE}
+        fi
