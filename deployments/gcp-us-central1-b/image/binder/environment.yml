@@ -2,7 +2,7 @@ name: carbonplan
 channels:
   - conda-forge
 dependencies:
-  - pangeo-notebook
+  - pangeo-notebook=2020.07.27
   - altair
   - altair_data_server
   - astropy
@@ -12,7 +12,7 @@ dependencies:
   - bottleneck
   - cartopy
   - cftime
-  - cython =0.28  # for vtzero
+  - cython=0.28  # for vtzero
   - gdal=2.4.2
   - libgdal=2.4.2
   - fastparquet
@@ -70,5 +70,4 @@ dependencies:
       - numbagg
       - vtzero
       - rio-tiler-mvt
-    #   - git+git://github.com/jhamman/treeplan.git@cloud_reorg
-    #   - git+git://github.com/jhamman/carbonplan-styles.git
+      - git+git://github.com/jhamman/carbonplan-styles.git
