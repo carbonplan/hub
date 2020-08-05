@@ -49,6 +49,7 @@ dependencies:
   - pystan
   - pytest
   - python-graphviz
+  - python-wget
   - rasterio=1.0.25
   - richdem
   - rio-cogeo
