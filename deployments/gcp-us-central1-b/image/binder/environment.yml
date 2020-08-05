@@ -49,6 +49,7 @@ dependencies:
   - pystan
   - pytest
   - python-graphviz
+  - python-wget
   - rasterio=1.0.25
   - richdem
   - rio-cogeo
@@ -70,5 +71,5 @@ dependencies:
       - numbagg
       - vtzero
       - rio-tiler-mvt
-    #   - git+git://github.com/jhamman/treeplan.git@cloud_reorg
-    #   - git+git://github.com/jhamman/carbonplan-styles.git
+      - git+git://github.com/jhamman/carbonplan-styles.git
+      - urlpath
