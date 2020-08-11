@@ -13,12 +13,13 @@ jobs:
     - name: Set Job Environment Variables
       run: |
         BRANCH=${GITHUB_REF#refs/heads/}
-        if [ "$BRANCH" ==  "prod" ]; then
+        echo $BRANCH
+        if [ ${BRANCH} ==  "prod" ]; then
             TARGET_URL="https://hub.carbonplan.org/""
             ENVIRONMENT="production"
         else
-            TARGET_URL="https://staging.hub.carbonplan.org/""
-            ENVIRONMENT="staging"
+            TARGET_URL="https://${BRANCH}.hub.carbonplan.org/""
+            ENVIRONMENT="${BRANCH}"
         fi
         echo "::set-env name=TARGET_URL::${TARGET_URL}"
         echo "::set-env name=ENVIRONMENT::${ENVIRONMENT}"
