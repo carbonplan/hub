@@ -10,6 +10,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+    - name: Set Job Environment Variables
+      run: |
+        BRANCH=${GITHUB_REF#refs/heads/}
+        echo ${BRANCH}
+        if [ ${BRANCH} ==  "prod" ]; then
+            TARGET_URL="https://hub.carbonplan.org/"
+            ENVIRONMENT="production"
+        else
+            TARGET_URL="https://${BRANCH}.hub.carbonplan.org/"
+            ENVIRONMENT=${BRANCH}
+        fi
+        echo "::set-env name=TARGET_URL::${TARGET_URL}"
+        echo "::set-env name=ENVIRONMENT::${ENVIRONMENT}"
+    - uses: chrnorm/deployment-action@releases/v1
+      name: Create GitHub deployment
+      id: deployment
+      with:
+        token: "${{ github.token }}"
+        target_url: ${{env.TARGET_URL}}
+        environment: ${{env.ENVIRONMENT}}
+
     - name: Install base apt packages
       run: |
         sudo apt-get update --yes -qq
@@ -58,3 +79,21 @@ jobs:
       run: |
         echo "hubploy deploy --cleanup-on-fail --namespace ${GITHUB_REF##*/} gcp-us-central1-b pangeo-deploy ${GITHUB_REF##*/}"
         hubploy deploy --cleanup-on-fail --namespace ${GITHUB_REF##*/} gcp-us-central1-b pangeo-deploy ${GITHUB_REF##*/}
+
+    - name: Update deployment status (success)
+      if: success()
+      uses: chrnorm/deployment-status@releases/v1
+      with:
+        token: "${{ github.token }}"
+        target_url: ${{env.TARGET_URL}}
+        state: "success"
+        deployment_id: ${{ steps.deployment.outputs.deployment_id }}
+
+    - name: Update deployment status (failure)
+      if: failure()
+      uses: chrnorm/deployment-status@releases/v1
+      with:
+        token: "${{ github.token }}"
+        target_url: ${{env.TARGET_URL}}
+        state: "failure"
+        deployment_id: ${{ steps.deployment.outputs.deployment_id }}
