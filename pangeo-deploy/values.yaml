@@ -42,6 +42,13 @@ pangeo:
       userScheduler:
         enabled: true
         replicas: 1
+        resources:
+          cpu:
+            limit: "1"
+            guarantee: "0.01"
+          memory:
+            limit: "250MiB"
+            guarantee: "100MiB"
       podPriority:
         enabled: true
       userPlaceholder:
