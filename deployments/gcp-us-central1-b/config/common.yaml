@@ -112,6 +112,16 @@ pangeo:
         users:
           - jhamman
           - freeman-lab
+      whitelist:
+        users:
+          - jhamman
+          - freeman-lab
+          - dcullenward
+          - badgley
+          - jparrella
+          - anderegg
+          - jmensch1
+
   dask-gateway:
     gateway:
       extraConfig:
