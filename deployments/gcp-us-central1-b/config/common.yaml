@@ -70,6 +70,17 @@ pangeo:
                     'mem_guarantee': '26G',
                 }
             },
+            {
+                'display_name': 'R-Notebook (n1-highmem-4 | 4 cores, 24GB)',
+                'kubespawner_override': {
+                    'image': 'jupyter/r-notebook:latest',
+                    'cpu_limit': 4,
+                    'cpu_guarantee': 4,
+                    'mem_limit': '24G',
+                    'mem_guarantee': '24G',
+
+                }
+            },
           ]
 
         # customPodHook: |
@@ -112,6 +123,16 @@ pangeo:
         users:
           - jhamman
           - freeman-lab
+      whitelist:
+        users:
+          - jhamman
+          - freeman-lab
+          - dcullenward
+          - badgley
+          - jparrella
+          - anderegg
+          - jmensch1
+
   dask-gateway:
     gateway:
       extraConfig:
