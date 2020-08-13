@@ -43,12 +43,12 @@ pangeo:
         enabled: true
         replicas: 1
         resources:
-          cpu:
-            limit: "1"
-            guarantee: "0.01"
-          memory:
-            limit: "250MiB"
-            guarantee: "100MiB"
+          requests:
+            memory: "32Mi"
+            cpu: "10m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
       podPriority:
         enabled: true
       userPlaceholder:
