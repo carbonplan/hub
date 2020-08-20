@@ -62,6 +62,7 @@ dependencies:
   - tippecanoe
   - tqdm
   - xarray>=0.16
+  - xesmf
   - xpublish
   - yarn
   - zarr
