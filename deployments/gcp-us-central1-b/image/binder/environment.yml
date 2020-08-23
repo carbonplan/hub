@@ -68,8 +68,9 @@ dependencies:
   - zarr
   - pip
   - pip:
-      - showit
       - numbagg
-      - vtzero
+      - rechunker
       - rio-tiler-mvt
+      - showit
+      - vtzero
       - git+git://github.com/jhamman/carbonplan-styles.git
