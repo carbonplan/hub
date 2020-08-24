@@ -2,7 +2,7 @@ name: carbonplan
 channels:
   - conda-forge
 dependencies:
-  - pangeo-notebook=2020.08.11
+  - pangeo-notebook=2020.08.24
   - altair
   - altair_data_server
   - astropy
