@@ -74,3 +74,4 @@ dependencies:
       - showit
       - vtzero
       - git+git://github.com/jhamman/carbonplan-styles.git
+      - git+git://github.com/carbonplan/carbonplan-python.git
