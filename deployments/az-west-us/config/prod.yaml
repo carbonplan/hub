@@ -1,0 +1,28 @@
+pangeo:
+  jupyterhub:
+    # hub:
+    #   services:
+    #     dask-gateway:
+    #       # This makes the gateway available at ${HUB_URL}/services/dask-gateway
+    #       url: "http://traefik-ooi-prod-dask-gateway.ooi-prod"
+    scheduling:
+      userPlaceholder:
+        enabled: true
+        replicas: 4
+        resources:
+          requests:
+            cpu: 1.6
+            memory: 5G
+          limits:
+            cpu: 3.2
+            memory: 10G
+    # proxy:
+    #   https:
+    #     enabled: true
+    #     hosts:
+    #       - hub.pangeo.io
+    #     letsencrypt:
+    #       contactEmail: joe@carbonplan.org
+    #   service:
+    #     annotations: {'service.beta.kubernetes.io/azure-load-balancer-resource-group': 'ooi-pangeo'}
+    #     loadBalancerIP: 23.96.23.164

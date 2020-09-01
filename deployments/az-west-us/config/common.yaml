@@ -1,0 +1,93 @@
+pangeo:
+  jupyterhub:
+    singleuser:
+      cloudMetadata:
+        enabled: true
+      cpu:
+        limit: 4
+        guarantee: 1
+      memory:
+        limit: 14G
+        guarantee: 4G
+
+    hub:
+      resources:
+        requests:
+          cpu: "0.25"
+          memory: 0.5Gi
+        limits:
+          cpu: "1.25"
+          memory: 1Gi
+    auth:
+      type: custom
+      custom:
+        className: oauthenticator.generic.GenericOAuthenticator
+        config:
+          login_service: "CarbonPlan"
+          token_url: https://carbonplan.auth0.com/oauth/token
+          userdata_url: https://carbonplan.auth0.com/oauth/userinfo
+          userdata_method: GET
+          username_key: nickname
+          scope:
+            - openid
+            - profile
+            - email
+      admin:
+        access: true
+        users:
+          - jhamman
+          - freeman-lab
+      whitelist:
+        users:
+          - jhamman
+          - freeman-lab
+          - dcullenward
+          - celinamaya
+          - badgley
+          - jparrella
+          - anderegg
+          - jmensch1
+
+  dask-gateway:
+    gateway:
+      extraConfig:
+        # Use the mapping form, to support merging multiple values.yaml
+        optionHandler: |
+          from dask_gateway_server.options import Options, Integer, Float, String
+          def cluster_options(user):
+             def option_handler(options):
+                 if ":" not in options.image:
+                     raise ValueError("When specifying an image you must also provide a tag")
+                 extra_annotations = {
+                     "hub.jupyter.org/username": user.name,
+                     "prometheus.io/scrape": "true",
+                     "prometheus.io/port": "8787",
+                 }
+                 extra_labels = {
+                     "hub.jupyter.org/username": user.name,
+                 }
+                 return {
+                     "worker_cores_limit": options.worker_cores,
+                     "worker_cores": min(options.worker_cores / 2, 1),
+                     "worker_memory": "%fG" % options.worker_memory,
+                     "image": options.image,
+                     "scheduler_extra_pod_annotations": extra_annotations,
+                     "worker_extra_pod_annotations": extra_annotations,
+                     "scheduler_extra_pod_labels": extra_labels,
+                     "worker_extra_pod_labels": extra_labels,
+                 }
+             return Options(
+                 Integer("worker_cores", 2, min=1, max=32, label="Worker Cores"),
+                 Float("worker_memory", 4, min=1, max=120, label="Worker Memory (GiB)"),
+                 String("image", default="pangeo/pangeo-notebook:latest", label="Image"),
+                 handler=option_handler,
+             )
+          c.Backend.cluster_options = cluster_options
+      backend:
+        worker:
+          extraPodConfig:
+            tolerations:
+              - key: "cloud.google.com/gke-preemptible"
+                operator: "Equal"
+                value: "true"
+                effect: "NoSchedule"
