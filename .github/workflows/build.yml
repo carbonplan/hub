@@ -36,16 +36,16 @@ jobs:
       run: |
         if [ -z "${COMMIT_RANGE}" ]
         then
-            echo hubploy build gcp-us-central1-b
+            hubploy build gcp-us-central1-b
         else
-            echo hubploy build gcp-us-central1-b --commit-range ${COMMIT_RANGE}
+            hubploy build gcp-us-central1-b --commit-range ${COMMIT_RANGE}
         fi
 
     - name: Test building az-west-us image if needed
       run: |
         if [ -z "${COMMIT_RANGE}" ]
         then
-            echo hubploy build az-west-us
+            hubploy build az-west-us
         else
-            echo hubploy build az-west-us --commit-range ${COMMIT_RANGE}
+            hubploy build az-west-us --commit-range ${COMMIT_RANGE}
         fi

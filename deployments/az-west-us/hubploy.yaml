@@ -1,16 +1,16 @@
 images:
-  image_name: ooicloud.azurecr.io/ooi-pangeo-io-notebook
+  image_name: carbonplan.azurecr.io/az-west-us-hub-notebook
   image_config_path: pangeo.jupyterhub.singleuser.image
   registry:
     provider: azure
     azure:
-      resource_group: ooi-pangeo
-      registry: ooicloud
+      resource_group: hub
+      registry: carbonplan
       auth_file: azure-auth.yaml
 
 cluster:
   provider: azure
   azure:
-    resource_group: ooi-pangeo
-    cluster: ooi-pangeo
+    resource_group: hub
+    cluster: hub
     auth_file: azure-auth.yaml
