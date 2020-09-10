@@ -7,7 +7,7 @@ set -x
 
 # name things
 CLUSTERNAME="hub"
-RESOURCEGROUP="hub"
+RESOURCEGROUP="pangeo-west-us-2"
 NODERESOURCEGROUP="hub-nodes"
 VNET="vnet"
 SUBNET="hub"
@@ -28,6 +28,11 @@ else
   echo "Logged in to ${ACCOUNT}. Continuing ..."
 fi
 
+# create service principal
+# az ad sp create-for-rbac --name "hubploy-ci" --role contributor \
+#                         --scopes /subscriptions/${SUBSCRIPTION}/resourceGroups/${RESOURCEGROUP} \
+#                         --sdk-auth
+
 # check if cluster already exists
 echo "Checking if cluster exists ..."
 CLUSTER=`az aks list --query [*].[name] --output table | grep "${CLUSTERNAME}" | cat`
@@ -46,11 +51,11 @@ else
     --node-count 3 \
     --node-osdisk-size 30 \
     --node-vm-size "Standard_D2s_v3" \
-    # --no-ssh-key \
-    # --network-plugin "azure" \
-    # --skip-subnet-role-assignment \
-    # --service-principal "${APPID}" \
-    # --client-secret "${PASSWORD}" \
+    --no-ssh-key \
+    --network-plugin "azure" \
+    --skip-subnet-role-assignment \
+    --service-principal "${APPID}" \
+    --client-secret "${PASSWORD}" \
     --enable-cluster-autoscaler \
     --min-count 3 \
     --max-count 20 \

@@ -1,14 +1,18 @@
 pangeo:
   jupyterhub:
-    # hub:
+    hub:
     #   services:
     #     dask-gateway:
     #       # This makes the gateway available at ${HUB_URL}/services/dask-gateway
-    #       url: "http://traefik-ooi-prod-dask-gateway.ooi-prod"
+    #       url: "http://traefik-ooi-staging-dask-gateway.ooi-staging"
+      extraEnv:
+        OAUTH2_AUTHORIZE_URL: "https://carbonplan.auth0.com/authorize"
+        OAUTH2_TOKEN_URL: "https://carbonplan.auth0.com/oauth/token"
+        OAUTH_CALLBACK_URL: "https://az-us-west2.hub.carbonplan.org/hub/oauth_callback"
     scheduling:
       userPlaceholder:
         enabled: true
-        replicas: 4
+        replicas: 1
         resources:
           requests:
             cpu: 1.6
@@ -16,13 +20,13 @@ pangeo:
           limits:
             cpu: 3.2
             memory: 10G
-    # proxy:
-    #   https:
-    #     enabled: true
-    #     hosts:
-    #       - hub.pangeo.io
-    #     letsencrypt:
-    #       contactEmail: joe@carbonplan.org
-    #   service:
-    #     annotations: {'service.beta.kubernetes.io/azure-load-balancer-resource-group': 'ooi-pangeo'}
-    #     loadBalancerIP: 23.96.23.164
+    proxy:
+      https:
+        enabled: true
+        hosts:
+          - az-us-west2.hub.carbonplan.org
+        letsencrypt:
+          contactEmail: joe@carbonplan.org
+      service:
+        annotations: {'service.beta.kubernetes.io/azure-load-balancer-resource-group': 'pangeo-west-us-2'}
+        loadBalancerIP: 40.125.122.48

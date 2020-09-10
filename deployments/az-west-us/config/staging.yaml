@@ -20,5 +20,5 @@ pangeo:
         letsencrypt:
           contactEmail: joe@carbonplan.org
       service:
-        # annotations: {'service.beta.kubernetes.io/azure-load-balancer-resource-group': 'ooi-pangeo'}
-        loadBalancerIP: 40.125.122.48
+        annotations: {'service.beta.kubernetes.io/azure-load-balancer-resource-group': 'pangeo-west-us-2'}
+        loadBalancerIP: 20.51.71.8

@@ -4,13 +4,13 @@ images:
   registry:
     provider: azure
     azure:
-      resource_group: hub
+      resource_group: pangeo-west-us-2
       registry: carbonplan
       auth_file: azure-auth.yaml
 
 cluster:
   provider: azure
   azure:
-    resource_group: hub
+    resource_group: pangeo-west-us-2
     cluster: hub
     auth_file: azure-auth.yaml
