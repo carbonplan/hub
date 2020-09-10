@@ -91,8 +91,8 @@ jobs:
 
     - name: Deploy az-west-us
       run: |
-        echo "hubploy deploy --cleanup-on-fail --namespace az-west-us${GITHUB_REF##*/} az-west-us pangeo-deploy ${GITHUB_REF##*/}"
-        hubploy deploy --cleanup-on-fail --namespace az-west-us${GITHUB_REF##*/} az-west-us pangeo-deploy ${GITHUB_REF##*/}
+        echo "hubploy deploy --cleanup-on-fail --namespace az-west-us-${GITHUB_REF##*/} az-west-us pangeo-deploy ${GITHUB_REF##*/}"
+        hubploy deploy --cleanup-on-fail --namespace az-west-us-${GITHUB_REF##*/} az-west-us pangeo-deploy ${GITHUB_REF##*/}
 
     - name: Update deployment status (success)
       if: success()
