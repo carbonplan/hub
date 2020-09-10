@@ -80,9 +80,14 @@ az role assignment create --role "Contributor" --assignee "${APPID}" --scope "/s
 # delete dashboard
 kubectl --namespace=kube-system delete deployment kubernetes-dashboard
 
-# install tiller
-echo "Installing tiller ..."
-kubectl create serviceaccount tiller --namespace=kube-system
-kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller
-helm init --service-account tiller
-kubectl --namespace=kube-system patch deployment tiller-deploy --type=json --patch='[{"op": "add", "path": "/spec/template/spec/containers/0/command", "value": ["/tiller", "--listen=localhost:44134"]}]'
+az aks nodepool add \
+    --resource-group $RESOURCEGROUP \
+    --cluster-name $CLUSTERNAME \
+    --name userpool \
+    --node-count 0 \
+    --enable-cluster-autoscaler \
+    --min-count 0 \
+    --max-count 20 \
+    --max-pods 64 \
+    --node-vm-size Standard_D13_v2
+    --verbose

@@ -1,28 +1,10 @@
 pangeo:
   jupyterhub:
     scheduling:
-    #   userPods:
-    #     nodeAffinity:
-    #       matchNodePurpose: require
       corePods:
         nodeAffinity:
           matchNodePurpose: require
     singleuser:
-    #   initContainers:
-    #     - name: volume-mount-hack
-    #       image: busybox
-    #       command: ["sh", "-c", "id && chown 1000:1000 /home/jovyan && ls -lhd /home/jovyan"]
-    #       securityContext:
-    #         runAsUser: 0
-    #       volumeMounts:
-    #       - name: home
-    #         mountPath: /home/jovyan
-    #         subPath: "home/hub.carbonplan.org/{username}"
-    #   storage:
-    #     type: static
-    #     static:
-    #       pvcName: home-nfs
-    #       subPath: "home/hub.carbonplan.org/{username}"
       cloudMetadata:
         enabled: true
       cpu:
@@ -82,28 +64,6 @@ pangeo:
                 }
             },
           ]
-
-        # customPodHook: |
-        #   c.JupyterHub.template_paths = ['/usr/local/share/jupyterhub/custom_templates/']
-        #   c.JupyterHub.template_vars = {
-        #     'pangeo_hub_title': 'hub.carbonplan.org',
-        #     'pangeo_hub_subtitle': 'Research Hub for CarbonPlan',
-        #     'pangeo_welcome': """Welcome to hub.carbonplan.org. This hub lives in Google Cloud region <code>us-central1-b</code>."""
-        #   }
-
-    #   extraVolumes:
-    #     - name: custom-templates
-    #       gitRepo:
-    #         repository: "https://github.com/carbonplan/carbonplan-custom-jupyterhub-templates.git"
-    #         revision: "f83bd9a773f1cf8ded69ffb43fdaed20029e318b"
-    #   extraVolumeMounts:
-    #     - mountPath: /usr/local/share/jupyterhub/custom_templates
-    #       name: custom-templates
-    #       subPath: "carbonplan-custom-jupyterhub-templates/templates"
-    #     - mountPath: /usr/local/share/jupyterhub/static/extra-assets
-    #       name: custom-templates
-    #       subPath: "carbonplan-custom-jupyterhub-templates/extra-assets"
-
     auth:
       type: custom
       custom:
@@ -177,24 +137,3 @@ pangeo:
                 operator: "Equal"
                 value: "true"
                 effect: "NoSchedule"
-    #     scheduler:
-    #       extraPodConfig:
-    #         affinity:
-    #           nodeAffinity:
-    #             requiredDuringSchedulingIgnoredDuringExecution:
-    #               nodeSelectorTerms:
-    #                 - matchExpressions:
-    #                   - key: cloud.google.com/gke-preemptible
-    #                     operator: DoesNotExist
-    #                   - key: hub.jupyter.org/node-purpose
-    #                     operator: In
-    #                     values:
-    #                     - "user"
-
-# homeDirectories:
-#   nfs:
-#     enabled: true
-#     serverPath: "/homes"
-#     # Output from gcloud beta filestore instances describe dev-home --location=us-central1-b
-#     serverIP: 10.171.161.186
-#     serverName: test

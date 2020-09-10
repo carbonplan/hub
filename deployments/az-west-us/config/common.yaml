@@ -18,6 +18,49 @@ pangeo:
         limits:
           cpu: "1.25"
           memory: 1Gi
+      extraConfig:
+        profile_list: |
+          c.KubeSpawner.profile_list = [
+            {
+                'display_name': 'small (2 cores, 12GB)',
+                'kubespawner_override': {
+                    'cpu_limit': 2,
+                    'cpu_guarantee': 2,
+                    'mem_limit': '12G',
+                    'mem_guarantee': '12G',
+                }
+            },
+            {
+                'display_name': 'standard (4 cores, 24GB)',
+                'kubespawner_override': {
+                    'cpu_limit': 4,
+                    'cpu_guarantee': 4,
+                    'mem_limit': '24G',
+                    'mem_guarantee': '24G',
+                }
+            },
+            {
+                'display_name': 'large (8 cores, 52GB)',
+                'kubespawner_override': {
+                    'cpu_limit': 8,
+                    'cpu_guarantee': 2,
+                    'mem_limit': '50G',
+                    'mem_guarantee': '26G',
+                }
+            },
+            {
+                'display_name': 'R-Notebook (4 cores, 24GB)',
+                'kubespawner_override': {
+                    'image': 'jupyter/r-notebook:latest',
+                    'cpu_limit': 4,
+                    'cpu_guarantee': 4,
+                    'mem_limit': '24G',
+                    'mem_guarantee': '24G',
+
+                }
+            },
+          ]
+
     auth:
       type: custom
       custom:
