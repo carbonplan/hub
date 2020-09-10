@@ -1,10 +1,10 @@
 pangeo:
   jupyterhub:
     hub:
-    #   services:
-    #     dask-gateway:
-    #       # This makes the gateway available at ${HUB_URL}/services/dask-gateway
-    #       url: "http://traefik-ooi-staging-dask-gateway.ooi-staging"
+      services:
+        dask-gateway:
+          # This makes the gateway available at ${HUB_URL}/services/dask-gateway
+          url: "http://traefik-az-west-us-prod-dask-gateway.az-west-us-prod"
       extraEnv:
         OAUTH2_AUTHORIZE_URL: "https://carbonplan.auth0.com/authorize"
         OAUTH2_TOKEN_URL: "https://carbonplan.auth0.com/oauth/token"
