@@ -9,6 +9,10 @@ pangeo:
         OAUTH2_AUTHORIZE_URL: "https://carbonplan.auth0.com/authorize"
         OAUTH2_TOKEN_URL: "https://carbonplan.auth0.com/oauth/token"
         OAUTH_CALLBACK_URL: "https://staging.az-us-west2.hub.carbonplan.org/hub/oauth_callback"
+    singleuser:
+      extraEnv:
+        DASK_GATEWAY__ADDRESS: "https://staging.az-us-west2.hub.carbonplan.org/services/dask-gateway/"
+        DASK_GATEWAY__PROXY_ADDRESS: "gateway://traefik-az-west-us-staging-dask-gateway.az-west-us-staging:80"
     scheduling:
       userPlaceholder:
         enabled: false
