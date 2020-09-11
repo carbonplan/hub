@@ -74,7 +74,7 @@ dependencies:
       - rio-tiler-mvt
       - showit
       - vtzero
-      - git+git://github.com/carbonplan/carbonplan-python.git
-      - git+git://github.com/carbonplan/styles.git
-      - git+git://github.com/carbonplan/data.git
-      - git+git://github.com/carbonplan/forests.git
+    #   - git+git://github.com/carbonplan/carbonplan-python.git
+    #   - git+git://github.com/carbonplan/styles.git
+    #   - git+git://github.com/carbonplan/data.git
+    #   - git+git://github.com/carbonplan/forests.git
