@@ -3,9 +3,9 @@ channels:
   - conda-forge
 dependencies:
   - pangeo-notebook=2020.08.31
+  - adlfs
   - altair
   - altair_data_server
-  - astropy
   - awscli
   - boto3
   - bokeh <2.1
@@ -73,5 +73,7 @@ dependencies:
       - rio-tiler-mvt
       - showit
       - vtzero
-      - git+git://github.com/jhamman/carbonplan-styles.git
       - git+git://github.com/carbonplan/carbonplan-python.git
+      - git+git://github.com/carbonplan/styles.git
+      - git+git://github.com/carbonplan/data.git
+      - git+git://github.com/carbonplan/forests.git

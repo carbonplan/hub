@@ -2,3 +2,4 @@ graphviz
 vim
 git
 nano
+rclone
