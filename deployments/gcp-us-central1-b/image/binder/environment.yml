@@ -9,7 +9,7 @@ dependencies:
   - astropy
   - awscli
   - boto3
-  - bokeh <2.1
+  - bokeh
   - bottleneck
   - cartopy
   - cftime
@@ -62,19 +62,16 @@ dependencies:
   - seaborn
   - tippecanoe
   - tqdm
-  - xarray>=0.16
+  - xarray
   - xesmf
   - xpublish
   - yarn
   - zarr
   - pip
   - pip:
+      - carbonplan[styles,data]
       - numbagg
-      - rechunker>=0.2
+      - rechunker
       - rio-tiler-mvt
       - showit
       - vtzero
-    #   - git+git://github.com/carbonplan/carbonplan-python.git
-    #   - git+git://github.com/carbonplan/styles.git
-    #   - git+git://github.com/carbonplan/data.git
-    #   - git+git://github.com/carbonplan/forests.git
