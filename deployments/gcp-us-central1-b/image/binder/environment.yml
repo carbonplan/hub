@@ -64,6 +64,7 @@ dependencies:
   - tqdm
   - xarray
   - xesmf
+  - xlrd
   - xpublish
   - yarn
   - zarr
