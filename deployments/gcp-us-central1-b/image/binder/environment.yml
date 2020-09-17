@@ -16,6 +16,7 @@ dependencies:
   - cython=0.28  # for vtzero
   - gdal=2.4.2
   - libgdal=2.4.2
+  - earthengine-api
   - fastparquet
   - gcsfs
   - geopandas
@@ -64,6 +65,7 @@ dependencies:
   - tqdm
   - xarray
   - xesmf
+  - xlrd
   - xpublish
   - yarn
   - zarr
