@@ -3,7 +3,7 @@ pangeo:
     proxy:
       https:
         hosts:
-          - staging.hub.carbonplan.org
+          - staging.gcp-us-central1b.hub.carbonplan.org
         letsencrypt:
           contactEmail: joe@carbonplan.org
       service:
@@ -17,7 +17,7 @@ pangeo:
           memory: "0.5Gi"
     singleuser:
       extraEnv:
-        DASK_GATEWAY__ADDRESS: "https://staging.hub.carbonplan.org/services/dask-gateway/"
+        DASK_GATEWAY__ADDRESS: "https://staging.gcp-us-central1b.hub.carbonplan.org/services/dask-gateway/"
         DASK_GATEWAY__PROXY_ADDRESS: "gateway://traefik-gcp-us-central1-b-staging-dask-gateway.staging:80"
     hub:
       resources:
@@ -34,4 +34,4 @@ pangeo:
       extraEnv:
         OAUTH2_AUTHORIZE_URL: "https://carbonplan.auth0.com/authorize"
         OAUTH2_TOKEN_URL: "https://carbonplan.auth0.com/oauth/token"
-        OAUTH_CALLBACK_URL: "https://staging.hub.carbonplan.org/hub/oauth_callback"
+        OAUTH_CALLBACK_URL: "https://staging.gcp-us-central1b.hub.carbonplan.org/hub/oauth_callback"

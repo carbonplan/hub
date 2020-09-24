@@ -41,6 +41,7 @@ dependencies:
   - numcodecs
   - numpy
   - pandas
+  - pre_commit
   - mpl-probscale
   - prefect
   - pydap
