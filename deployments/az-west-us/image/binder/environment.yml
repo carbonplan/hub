@@ -77,3 +77,4 @@ dependencies:
       - rio-tiler-mvt
       - showit
       - vtzero
+      - git+https://github.com/dask/adlfs.git
