@@ -7,6 +7,7 @@ dependencies:
   - altair
   - altair_data_server
   - awscli
+  - azure-storage-blob=2.1.0
   - boto3
   - bokeh
   - bottleneck
