@@ -7,7 +7,6 @@ dependencies:
   - altair
   - altair_data_server
   - awscli
-  - azure-storage-blob=2.1.0
   - boto3
   - bokeh
   - bottleneck
@@ -78,3 +77,4 @@ dependencies:
       - rio-tiler-mvt
       - showit
       - vtzero
+      - git+https://github.com/dask/adlfs.git
