@@ -3,7 +3,7 @@ channels:
   - conda-forge
 dependencies:
   - pangeo-notebook=2020.08.31
-  - adlfs
+  - adlfs=0.4
   - altair
   - altair_data_server
   - awscli
@@ -63,7 +63,7 @@ dependencies:
   - seaborn
   - tippecanoe
   - tqdm
-  - xarray
+  - xarray=0.16.0
   - xlrd
   - xesmf
   - xpublish
@@ -77,4 +77,3 @@ dependencies:
       - rio-tiler-mvt
       - showit
       - vtzero
-      - git+https://github.com/dask/adlfs.git
