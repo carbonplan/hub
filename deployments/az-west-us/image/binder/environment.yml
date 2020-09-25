@@ -12,6 +12,7 @@ dependencies:
   - bottleneck
   - cartopy
   - cftime
+  - cmip6_preprocessing
   - cython=0.28  # for vtzero
   - gdal=2.4.2
   - libgdal=2.4.2
@@ -77,3 +78,4 @@ dependencies:
       - rio-tiler-mvt
       - showit
       - vtzero
+      - git+https://github.com/jhamman/scikit-downscale.git
