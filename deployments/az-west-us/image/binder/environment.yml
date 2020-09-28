@@ -79,6 +79,6 @@ dependencies:
       - showit
       - vtzero
       - cmip6-preprocessing
-      - git+https://github.com/jhamman/scikit-downscale.git
-      - git+https://github.com/dask/adlfs.git
+      - git+https://github.com/jhamman/scikit-downscale.git@master
+      - git+https://github.com/dask/adlfs.git@master
       - git+https://github.com/jhamman/zarr.git@fix/absstore
