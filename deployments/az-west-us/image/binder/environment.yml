@@ -78,7 +78,7 @@ dependencies:
       - rio-tiler-mvt
       - showit
       - vtzero
-      - cmip6_preprocessing
+      - cmip6-preprocessing
       - git+https://github.com/jhamman/scikit-downscale.git
       - git+https://github.com/dask/adlfs.git
       - git+https://github.com/jhamman/zarr.git@fix/absstore
