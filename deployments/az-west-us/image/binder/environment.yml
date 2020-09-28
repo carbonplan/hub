@@ -39,6 +39,7 @@ dependencies:
   - nc-time-axis
   - netcdf4
   - nodejs
+  - numba
   - numcodecs
   - numpy
   - pandas
@@ -46,6 +47,7 @@ dependencies:
   - mpl-probscale
   - prefect
   - pydap
+  - pykdtree
   - pyproj
   - pyresample
   - pystac
@@ -64,6 +66,7 @@ dependencies:
   - seaborn
   - tippecanoe
   - tqdm
+  - verde
   - xarray=0.16.0
   - xlrd
   - xesmf
