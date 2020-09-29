@@ -71,7 +71,7 @@ jobs:
 
     - name: Build az-west-us image if needed
       timeout-minutes: 120
-      run: hubploy build az-west-us --check-registry --push
+      run: hubploy build az-west-us --check-registry --push 2> /dev/null
 
     - name: Install helm
       run: |
@@ -92,7 +92,7 @@ jobs:
     - name: Deploy az-west-us
       run: |
         echo "hubploy deploy --cleanup-on-fail --namespace az-west-us-${GITHUB_REF##*/} az-west-us pangeo-deploy ${GITHUB_REF##*/}"
-        hubploy deploy --cleanup-on-fail --namespace az-west-us-${GITHUB_REF##*/} az-west-us pangeo-deploy ${GITHUB_REF##*/}
+        hubploy deploy --cleanup-on-fail --namespace az-west-us-${GITHUB_REF##*/} az-west-us pangeo-deploy ${GITHUB_REF##*/} 2> /dev/null
 
     - name: Update deployment status (success)
       if: success()
