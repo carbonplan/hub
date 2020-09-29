@@ -91,3 +91,16 @@ az aks nodepool add \
     --max-pods 64 \
     --node-vm-size Standard_D13_v2
     --verbose
+
+az aks nodepool add \
+    --resource-group $RESOURCEGROUP \
+    --cluster-name $CLUSTERNAME \
+    --kubernetes-version 1.16.15 \
+    --name bigmem \
+    --node-count 0 \
+    --enable-cluster-autoscaler \
+    --min-count 0 \
+    --max-count 1 \
+    --max-pods 64 \
+    --node-vm-size Standard_D14_v2 \
+    --verbose
