@@ -51,6 +51,15 @@ pangeo:
                 }
             },
             {
+                'display_name': 'very large (16 cores, 110GB)',
+                'kubespawner_override': {
+                    'cpu_limit': 16,
+                    'cpu_guarantee': 8,
+                    'mem_limit': '110G',
+                    'mem_guarantee': '55G',
+                }
+            },
+            {
                 'display_name': 'R-Notebook (4 cores, 24GB)',
                 'kubespawner_override': {
                     'image': 'jupyter/r-notebook:latest',
