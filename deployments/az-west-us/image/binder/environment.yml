@@ -31,6 +31,7 @@ dependencies:
   - intake-stac
   - intake-xarray
   - ipykernel
+  - ipython=7.10
   - ipyleaflet
   - ipytree
   - ipywidgets
