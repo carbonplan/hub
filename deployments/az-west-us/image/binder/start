@@ -2,10 +2,11 @@
 
 # ==== ONLY EDIT WITHIN THIS BLOCK =====
 
-export PANGEO_ENV="carbonplan-gcp-us-cental-1"
-export SCRATCH="gs://carbonplan-scratch"
+export PANGEO_ENV="carbonplan-az-us-west2"
+export SCRATCH="az://carbonplan-scratch"
 export INTAKE_PATH="https://raw.githubusercontent.com/carbonplan/data/master/catalogs/master.yaml"
 export INTAKE_PERSIST_PATH="${SCRATCH}/intake-persist/${JUPYTERHUB_USER}/"
+export CARBONPLAN_DATA="https://carbonplan.blob.core.windows.net/carbonplan-data"
 
 # ==== ONLY EDIT WITHIN THIS BLOCK =====
 
