@@ -13,6 +13,7 @@ dependencies:
   - cartopy
   - cftime
   - cmip6_preprocessing
+  - code-server >=3.2
   - cython=0.28  # for vtzero
   - gdal=2.4.2
   - libgdal=2.4.2
@@ -35,6 +36,8 @@ dependencies:
   - ipyleaflet
   - ipytree
   - ipywidgets
+  - jupyter-server-proxy
+  - jupyter-vscode-proxy
   - matplotlib
   - nb_conda_kernels
   - nc-time-axis
