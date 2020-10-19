@@ -2,7 +2,7 @@ name: carbonplan
 channels:
   - conda-forge
 dependencies:
-  - pangeo-notebook=2020.08.31
+  - pangeo-notebook=2020.10.08
   - adlfs
   - altair
   - altair_data_server
@@ -72,7 +72,7 @@ dependencies:
   - zarr
   - pip
   - pip:
-      - carbonplan[styles,data]
+      - carbonplan[styles,data,forests]
       - numbagg
       - rechunker
       - rio-tiler-mvt
