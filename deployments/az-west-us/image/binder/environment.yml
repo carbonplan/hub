@@ -2,7 +2,7 @@ name: carbonplan
 channels:
   - conda-forge
 dependencies:
-  - pangeo-notebook=2020.08.31
+  - pangeo-notebook=2020.10.08
   - adlfs #=0.4
   - altair
   - altair_data_server
@@ -79,13 +79,12 @@ dependencies:
   - zarr
   - pip
   - pip:
-      - carbonplan[styles,data]
+      - carbonplan[styles,data,forests]
       - numbagg
       - rechunker
       - rio-tiler-mvt
       - showit
       - vtzero
-      - cmip6-preprocessing
       - git+https://github.com/jhamman/scikit-downscale.git@master
       - git+https://github.com/dask/adlfs.git@master
       - git+https://github.com/jhamman/zarr.git@fix/absstore
