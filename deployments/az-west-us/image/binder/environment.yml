@@ -39,6 +39,7 @@ dependencies:
   - jupyter-server-proxy
   - jupyter-vscode-proxy
   - matplotlib
+  - metsim
   - nb_conda_kernels
   - nc-time-axis
   - netcdf4
@@ -88,3 +89,4 @@ dependencies:
       - git+https://github.com/jhamman/scikit-downscale.git@master
       - git+https://github.com/dask/adlfs.git@master
       - git+https://github.com/jhamman/zarr.git@fix/absstore
+      - git+https://github.com/jhamman/climate_indices.git@fix/no-nco
