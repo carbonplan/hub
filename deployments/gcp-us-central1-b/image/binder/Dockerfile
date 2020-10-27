@@ -1,2 +1,2 @@
 # Note that there must be a tag
-FROM jhamman/base-image:mamba-test-20200930
+FROM pangeo/base-image:2020.10.26

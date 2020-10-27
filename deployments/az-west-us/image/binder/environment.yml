@@ -6,6 +6,7 @@ dependencies:
   - adlfs #=0.4
   - altair
   - altair_data_server
+  - vega_datasets
   - awscli
   - boto3
   - bokeh
@@ -90,3 +91,4 @@ dependencies:
       - git+https://github.com/dask/adlfs.git@master
       - git+https://github.com/jhamman/zarr.git@fix/absstore
       - git+https://github.com/jhamman/climate_indices.git@no-nco
+      - git+https://github.com/altair-viz/altair_data_server.git
