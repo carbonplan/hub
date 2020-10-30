@@ -39,7 +39,7 @@ pangeo:
 
     prePuller:
       continuous:
-        enabled: true
+        enabled: false
 
     scheduling:
       userScheduler:
