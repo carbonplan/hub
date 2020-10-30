@@ -51,11 +51,11 @@ pangeo:
                 }
             },
             {
-                'display_name': 'very large (16 cores, 437GB)',
+                'display_name': 'very large (16 cores, 255GB)',
                 'kubespawner_override': {
                     'cpu_limit': 64,
                     'cpu_guarantee': 16,
-                    'mem_limit': '255',
+                    'mem_limit': '255G',
                     'mem_guarantee': '55G',
                 }
             },
