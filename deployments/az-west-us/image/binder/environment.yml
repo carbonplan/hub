@@ -81,7 +81,10 @@ dependencies:
   - zarr
   - pip
   - pip:
-      - carbonplan[styles,data,forests]
+      - carbonplan
+      - carbonplan-data
+      - carbonplan-forests
+      - carbonplan-styles
       - numbagg
       - rechunker
       - rio-tiler-mvt
