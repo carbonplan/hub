@@ -83,7 +83,7 @@ dependencies:
   - pip:
       - carbonplan
       - carbonplan-data
-      - carbonplan-forests
+      - carbonplan-forests>=0.1.2
       - carbonplan-styles
       - numbagg
       - rechunker
