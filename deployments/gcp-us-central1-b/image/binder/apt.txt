@@ -3,3 +3,4 @@ vim
 git
 nano
 rclone
+bash-completion

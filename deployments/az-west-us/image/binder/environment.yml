@@ -3,10 +3,10 @@ channels:
   - conda-forge
 dependencies:
   - pangeo-notebook=2020.10.08
-  - adlfs #=0.4
+  - adlfs
   - altair
   - altair_data_server
-  - vega_datasets
+  - astropy
   - awscli
   - boto3
   - bokeh
@@ -73,9 +73,11 @@ dependencies:
   - tippecanoe
   - tqdm
   - verde
-  - xarray=0.16.0
+  - vega_datasets
+  - xarray=0.16  # for xesmf
   - xlrd
   - xesmf
+  - xlrd
   - xpublish
   - yarn
   - zarr
@@ -90,8 +92,8 @@ dependencies:
       - rio-tiler-mvt
       - showit
       - vtzero
-      - git+https://github.com/jhamman/scikit-downscale.git@master
-      - git+https://github.com/dask/adlfs.git@master
-      - git+https://github.com/jhamman/zarr.git@fix/absstore
-      - git+https://github.com/jhamman/climate_indices.git@no-nco
-      - git+https://github.com/altair-viz/altair_data_server.git
+      - git+https://github.com/jhamman/scikit-downscale.git@master  # wip
+      - git+https://github.com/dask/adlfs.git@master  # for fixes related to async
+      - git+https://github.com/jhamman/zarr.git@fix/absstore  # for current version of azure api
+      - git+https://github.com/jhamman/climate_indices.git@no-nco  # for no-nco deps
+      - git+https://github.com/altair-viz/altair_data_server.git  # for remote hosting
