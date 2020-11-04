@@ -2,7 +2,6 @@ name: carbonplan
 channels:
   - conda-forge
 dependencies:
-  - pangeo-notebook=2020.10.08
   - adlfs
   - altair
   - altair_data_server
@@ -13,6 +12,8 @@ dependencies:
   - bottleneck
   - cartopy
   - cftime
+  - cmip6_preprocessing
+  - code-server >=3.2
   - cython=0.28  # for vtzero
   - gdal=2.4.2
   - libgdal=2.4.2
@@ -31,14 +32,19 @@ dependencies:
   - intake-stac
   - intake-xarray
   - ipykernel
+  - ipython=7.10
   - ipyleaflet
   - ipytree
   - ipywidgets
+  - jupyter-server-proxy
+  - jupyter-vscode-proxy
   - matplotlib
+  - metsim
   - nb_conda_kernels
   - nc-time-axis
   - netcdf4
   - nodejs
+  - numba
   - numcodecs
   - numpy
   - pandas
@@ -46,6 +52,7 @@ dependencies:
   - mpl-probscale
   - prefect
   - pydap
+  - pykdtree
   - pyproj
   - pyresample
   - pystac
@@ -64,7 +71,10 @@ dependencies:
   - seaborn
   - tippecanoe
   - tqdm
-  - xarray
+  - verde
+  - vega_datasets
+  - xarray=0.16  # for xesmf
+  - xlrd
   - xesmf
   - xlrd
   - xpublish
@@ -81,3 +91,8 @@ dependencies:
       - rio-tiler-mvt
       - showit
       - vtzero
+      - git+https://github.com/jhamman/scikit-downscale.git@master  # wip
+      - git+https://github.com/dask/adlfs.git@master  # for fixes related to async
+      - git+https://github.com/jhamman/zarr.git@fix/absstore  # for current version of azure api
+      - git+https://github.com/jhamman/climate_indices.git@no-nco  # for no-nco deps
+      - git+https://github.com/altair-viz/altair_data_server.git  # for remote hosting
