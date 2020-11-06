@@ -40,6 +40,7 @@ dependencies:
   - jupyter-server-proxy
   - jupyter-vscode-proxy
   - matplotlib
+  - metpy
   - metsim
   - nb_conda_kernels
   - nc-time-axis
