@@ -2,6 +2,7 @@ name: carbonplan
 channels:
   - conda-forge
 dependencies:
+  - pangeo-notebook=2020.11.06
   - adlfs
   - altair
   - altair_data_server
@@ -39,6 +40,7 @@ dependencies:
   - jupyter-server-proxy
   - jupyter-vscode-proxy
   - matplotlib
+  - metpy
   - metsim
   - nb_conda_kernels
   - nc-time-axis
