@@ -20,6 +20,7 @@ dependencies:
   - libgdal=2.4.2
   - earthengine-api
   - fastparquet
+  - fire
   - gcsfs
   - geopandas
   - geoviews
