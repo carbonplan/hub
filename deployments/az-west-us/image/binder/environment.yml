@@ -76,7 +76,7 @@ dependencies:
   - tqdm
   - verde
   - vega_datasets
-  - xarray=0.16  # for xesmf
+  - xarray=0.16.0  # for xesmf
   - xlrd
   - xesmf
   - xlrd
