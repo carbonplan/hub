@@ -14,7 +14,8 @@ jobs:
       - name: get commits
         run: |
           COMMITS=$(git log --oneline --no-merges remotes/origin/prod...remotes/origin/staging --)
-          echo "::set-env name=COMMITS::$COMMITS"
+          echo "COMMITS=${COMMITS}" >> $GITHUB_ENV
+
       - name: pull-request
         uses: repo-sync/pull-request@v2
         with:
