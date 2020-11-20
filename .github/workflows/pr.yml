@@ -13,8 +13,11 @@ jobs:
           fetch-depth: 0  # 0 indicates all history for all branches and tags.
       - name: get commits
         run: |
-          COMMITS=$(git log --oneline --no-merges remotes/origin/prod...remotes/origin/staging --)
-          echo "::set-env name=COMMITS::$COMMITS"
+          echo 'COMMITS<<EOF' >> $GITHUB_ENV
+          git log --oneline --no-merges remotes/origin/prod...remotes/origin/staging -- >> $GITHUB_ENV
+          echo 'EOF' >> $GITHUB_ENV
+
+
       - name: pull-request
         uses: repo-sync/pull-request@v2
         with:

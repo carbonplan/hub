@@ -21,8 +21,9 @@ jobs:
             TARGET_URL="https://${BRANCH}.hub.carbonplan.org/"
             ENVIRONMENT=${BRANCH}
         fi
-        echo "::set-env name=TARGET_URL::${TARGET_URL}"
-        echo "::set-env name=ENVIRONMENT::${ENVIRONMENT}"
+        echo "TARGET_URL=${TARGET_URL}" >> $GITHUB_ENV
+        echo "ENVIRONMENT=${ENVIRONMENT}" >> $GITHUB_ENV
+
     - uses: chrnorm/deployment-action@releases/v1
       name: Create GitHub deployment
       id: deployment
