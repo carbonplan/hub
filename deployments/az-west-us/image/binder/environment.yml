@@ -76,7 +76,7 @@ dependencies:
   - tqdm
   - verde
   - vega_datasets
-  - xarray=0.16.0  # for xesmf
+  - xarray
   - xlrd
   - xesmf
   - xlrd
@@ -87,7 +87,7 @@ dependencies:
   - pip:
       - carbonplan
       - carbonplan-data
-      - carbonplan-forests>=0.1.2
+      - carbonplan-forests
       - carbonplan-styles
       - numbagg
       - rechunker
@@ -95,9 +95,8 @@ dependencies:
       - showit
       - vtzero
       - git+https://github.com/jhamman/scikit-downscale.git@master  # wip
-      - git+https://github.com/dask/adlfs.git@master  # for fixes related to async
-      - git+https://github.com/jhamman/zarr.git@fix/absstore  # for current version of azure api
+      - --upgrade git+https://github.com/dask/adlfs.git@master  # for fixes related to async
+      - --upgrade git+https://github.com/jhamman/zarr.git@fix/absstore  # for current version of azure api
       - git+https://github.com/jhamman/climate_indices.git@no-nco  # for no-nco deps
-      - git+https://github.com/altair-viz/altair_data_server.git  # for remote hosting
+      - --upgrade git+https://github.com/altair-viz/altair_data_server.git  # for remote hosting
       - git+https://github.com/carbonplan/cmip6-downscaling.git@d6c6b94c2c66fc757403bc9cb13145a77d9e6044  # wip
-      - git+https://github.com/pydata/xarray.git@master  # wip: fix to apply_ufunc (remove after 0.16.2)
