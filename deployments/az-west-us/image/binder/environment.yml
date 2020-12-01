@@ -99,5 +99,5 @@ dependencies:
       - git+https://github.com/jhamman/zarr.git@fix/absstore  # for current version of azure api
       - git+https://github.com/jhamman/climate_indices.git@no-nco  # for no-nco deps
       - git+https://github.com/altair-viz/altair_data_server.git  # for remote hosting
-      - git+https://github.com/carbonplan/cmip6-downscaling.git@terraclimate_plus  # wip
+      - git+https://github.com/carbonplan/cmip6-downscaling.git@d6c6b94c2c66fc757403bc9cb13145a77d9e6044  # wip
       - git+https://github.com/pydata/xarray.git@master  # wip: fix to apply_ufunc (remove after 0.16.2)
