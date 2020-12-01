@@ -95,8 +95,8 @@ dependencies:
       - showit
       - vtzero
       - git+https://github.com/jhamman/scikit-downscale.git@master  # wip
-      - --upgrade git+https://github.com/dask/adlfs.git@master  # for fixes related to async
-      - --upgrade git+https://github.com/jhamman/zarr.git@fix/absstore  # for current version of azure api
+      - git+https://github.com/dask/adlfs.git@master  # for fixes related to async
+      - git+https://github.com/jhamman/zarr.git@fix/absstore  # for current version of azure api
       - git+https://github.com/jhamman/climate_indices.git@no-nco  # for no-nco deps
-      - --upgrade git+https://github.com/altair-viz/altair_data_server.git  # for remote hosting
+      - git+https://github.com/altair-viz/altair_data_server.git  # for remote hosting
       - git+https://github.com/carbonplan/cmip6-downscaling.git@d6c6b94c2c66fc757403bc9cb13145a77d9e6044  # wip
