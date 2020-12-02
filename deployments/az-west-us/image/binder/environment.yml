@@ -99,4 +99,4 @@ dependencies:
       - git+https://github.com/jhamman/zarr.git@fix/absstore  # for current version of azure api
       - git+https://github.com/jhamman/climate_indices.git@no-nco  # for no-nco deps
       - git+https://github.com/altair-viz/altair_data_server.git  # for remote hosting
-      - git+https://github.com/carbonplan/cmip6-downscaling.git@2001530f7eaaca61bf1ddcc44b71dba858b6b28c  # wip
+      - git+https://github.com/carbonplan/cmip6-downscaling.git@6f95a40cc9cdfd7fe9d8cf332aced9a45b62c1e9
