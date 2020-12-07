@@ -104,3 +104,19 @@ az aks nodepool add \
     --max-pods 64 \
     --node-vm-size Standard_D64s_v4 \
     --verbose
+
+az aks nodepool add \
+    --resource-group $RESOURCEGROUP \
+    --cluster-name $CLUSTERNAME \
+    --kubernetes-version 1.16.15 \
+    --name dask-workers \
+    --node-count 0 \
+    --priority Spot \
+    --eviction-policy Delete \
+    --spot-max-price -1 \
+    --enable-cluster-autoscaler \
+    --min-count 0 \
+    --max-count 4 \
+    --max-pods 64 \
+    --node-vm-size Standard_D15_v2 \
+    --verbose

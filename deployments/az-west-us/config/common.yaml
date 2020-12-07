@@ -51,12 +51,12 @@ pangeo:
                 }
             },
             {
-                'display_name': 'very large (16 cores, 255GB)',
+                'display_name': 'very large (32 cores, 256GB)',
                 'kubespawner_override': {
-                    'cpu_limit': 63,
-                    'cpu_guarantee': 62,
-                    'mem_limit': '250G',
-                    'mem_guarantee': '254G',
+                    'cpu_limit': 32,
+                    'cpu_guarantee': 32,
+                    'mem_limit': '256G',
+                    'mem_guarantee': '128G',
                 }
             },
             {
@@ -138,3 +138,20 @@ pangeo:
                  handler=option_handler,
              )
           c.Backend.cluster_options = cluster_options
+      backend:
+        worker:
+          extraPodConfig:
+            tolerations:
+            - key: "kubernetes.azure.com/scalesetpriority"
+              operator: "Equal"
+              value: "spot"
+              effect: "NoSchedule"
+            affinity:
+              nodeAffinity:
+                requiredDuringSchedulingIgnoredDuringExecution:
+                  nodeSelectorTerms:
+                  - matchExpressions:
+                    - key: kubernetes.azure.com/scalesetpriority
+                      operator: In
+                      values:
+                      - spot
