@@ -138,3 +138,11 @@ pangeo:
                  handler=option_handler,
              )
           c.Backend.cluster_options = cluster_options
+      backend:
+        worker:
+          extraPodConfig:
+            tolerations:
+              - key: "kubernetes.azure.com/scalesetpriority"
+                operator: "Equal"
+                value: "spot"
+                effect: "NoSchedule"
