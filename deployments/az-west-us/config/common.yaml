@@ -55,8 +55,8 @@ pangeo:
                 'kubespawner_override': {
                     'cpu_limit': 63,
                     'cpu_guarantee': 62,
-                    'mem_limit': '250',
-                    'mem_guarantee': '250',
+                    'mem_limit': '250G',
+                    'mem_guarantee': '254G',
                 }
             },
             {
