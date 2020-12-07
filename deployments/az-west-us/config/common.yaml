@@ -56,7 +56,7 @@ pangeo:
                     'cpu_limit': 32,
                     'cpu_guarantee': 32,
                     'mem_limit': '252G',
-                    'mem_guarantee': '252G',
+                    'mem_guarantee': '248G',
                 }
             },
             {
@@ -142,7 +142,16 @@ pangeo:
         worker:
           extraPodConfig:
             tolerations:
-              - key: "kubernetes.azure.com/scalesetpriority"
-                operator: "Equal"
-                value: "spot"
-                effect: "NoSchedule"
+            - key: "kubernetes.azure.com/scalesetpriority"
+              operator: "Equal"
+              value: "spot"
+              effect: "NoSchedule"
+            affinity:
+              nodeAffinity:
+                requiredDuringSchedulingIgnoredDuringExecution:
+                  nodeSelectorTerms:
+                  - matchExpressions:
+                    - key: kubernetes.azure.com/scalesetpriority
+                      operator: In
+                      values:
+                      - spot
