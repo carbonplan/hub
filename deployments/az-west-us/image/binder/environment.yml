@@ -64,6 +64,7 @@ dependencies:
   - python-graphviz
   - python-wget
   - rasterio=1.0.25
+  - regionmask
   - richdem
   - rio-cogeo
   - rioxarray
