@@ -21,6 +21,7 @@ pangeo:
       image:
         name: carbonplan/hub
         tag: latest
+      allowNamedServers: true
     singleuser:
       image:
         name: carbonplan/notebook
