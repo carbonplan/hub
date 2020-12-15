@@ -58,6 +58,7 @@ dependencies:
   - pykdtree
   - pyproj
   - pyresample
+  - pysal
   - pystac
   - pystan
   - pytest
