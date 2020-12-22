@@ -43,7 +43,7 @@ jobs:
         fetch-depth: 0  # 0 indicates all history.
 
     - name: setup python
-      uses: actions/setup-python@v2.2.0
+      uses: actions/setup-python@v2.2.1
       with:
         python-version: '3.7'
 
