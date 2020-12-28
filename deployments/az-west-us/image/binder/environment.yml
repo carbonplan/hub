@@ -91,6 +91,7 @@ dependencies:
       - carbonplan-data
       - carbonplan-forests
       - carbonplan-styles
+      - jupyterlab-classic
       - numbagg
       - rechunker
       - rio-tiler-mvt
