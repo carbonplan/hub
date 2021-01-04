@@ -39,6 +39,7 @@ dependencies:
   - ipyleaflet
   - ipytree
   - ipywidgets
+  - jupyterlab=2.2.9
   - jupyter-server-proxy
   - jupyter-vscode-proxy
   - matplotlib
