@@ -20,10 +20,12 @@ dependencies:
   - libgdal=2.4.2
   - earthengine-api
   - fastparquet
+  - fuzzywuzzy
   - fire
   - gcsfs
   - geopandas
   - geoviews
+  - gspread
   - h5py
   - h5netcdf
   - hvplot
@@ -44,7 +46,7 @@ dependencies:
   - jupyter-vscode-proxy
   - matplotlib
   - metpy
-  - metsim
+  - mpl-probscale
   - nb_conda_kernels
   - nc-time-axis
   - netcdf4
@@ -52,12 +54,13 @@ dependencies:
   - numba
   - numcodecs
   - numpy
+  - oauth2client
   - pandas
   - pre_commit
-  - mpl-probscale
   - prefect
   - pydap
   - pykdtree
+  - pygraphviz
   - pyproj
   - pyresample
   - pysal
