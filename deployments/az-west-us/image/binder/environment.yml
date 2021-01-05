@@ -16,14 +16,15 @@ dependencies:
   - cmip6_preprocessing
   - code-server >=3.2
   - cython=0.28  # for vtzero
-  - gdal=2.4.2
-  - libgdal=2.4.2
-  - earthengine-api
   - fastparquet
+  - fuzzywuzzy
   - fire
   - gcsfs
+  - gdal=2.4.2
   - geopandas
   - geoviews
+  - git-crypt
+  - gspread
   - h5py
   - h5netcdf
   - hvplot
@@ -39,11 +40,13 @@ dependencies:
   - ipyleaflet
   - ipytree
   - ipywidgets
+  - jupyterlab=2.2.9
   - jupyter-server-proxy
   - jupyter-vscode-proxy
+  - libgdal=2.4.2
   - matplotlib
   - metpy
-  - metsim
+  - mpl-probscale
   - nb_conda_kernels
   - nc-time-axis
   - netcdf4
@@ -51,12 +54,13 @@ dependencies:
   - numba
   - numcodecs
   - numpy
+  - oauth2client
   - pandas
   - pre_commit
-  - mpl-probscale
   - prefect
   - pydap
   - pykdtree
+  - pygraphviz
   - pyproj
   - pyresample
   - pysal
@@ -66,6 +70,7 @@ dependencies:
   - python-graphviz
   - python-wget
   - rasterio=1.0.25
+  - rechunker
   - regionmask
   - richdem
   - rio-cogeo
@@ -93,7 +98,6 @@ dependencies:
       - carbonplan-forests
       - carbonplan-styles
       - numbagg
-      - rechunker
       - rio-tiler-mvt
       - showit
       - vtzero
