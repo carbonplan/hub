@@ -55,6 +55,7 @@ dependencies:
   - numcodecs
   - numpy
   - oauth2client
+  - openpyxl
   - pandas
   - pre_commit
   - prefect
