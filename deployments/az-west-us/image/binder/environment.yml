@@ -107,5 +107,4 @@ dependencies:
       - git+https://github.com/jhamman/climate_indices.git@no-nco  # for no-nco deps
       - git+https://github.com/altair-viz/altair_data_server.git  # for remote hosting
       - git+https://github.com/carbonplan/cmip6-downscaling.git@114883934ea3d22dfbd1d047f20d585fd4625dab
-      - git+https://github.com/carbonplan/retro.git@master
       - git+https://github.com/edjdavid/intake-excel.git
