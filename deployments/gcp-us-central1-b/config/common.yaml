@@ -88,10 +88,9 @@ pangeo:
           - dcullenward
           - orianac
           - freyac
+          - tcchiao
           - badgley
-          - jparrella
           - anderegg
-          - jmensch1
 
   dask-gateway:
     gateway:
