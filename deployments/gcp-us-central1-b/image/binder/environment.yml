@@ -89,6 +89,7 @@ dependencies:
   - xarray
   - xlrd
   - xesmf
+  - xgboost
   - xlrd
   - xpublish
   - yarn
