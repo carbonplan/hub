@@ -62,6 +62,7 @@ dependencies:
   - prefect
   - pydap
   - pykdtree
+  - pygeos>=0.6
   - pygraphviz
   - pyproj
   - pyresample
