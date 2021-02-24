@@ -104,10 +104,9 @@ dependencies:
       - rio-tiler-mvt
       - showit
       - vtzero
-      - git+https://github.com/jhamman/scikit-downscale.git@master  # wip
-      - git+https://github.com/dask/adlfs.git@master  # for fixes related to async
+      - git+https://github.com/jhamman/scikit-downscale.git@a502557f322cf6a8cd2e34008b31f1b89b7e8190
       - git+https://github.com/jhamman/zarr.git@fix/absstore  # for current version of azure api
       - git+https://github.com/jhamman/climate_indices.git@39bbf038c77922f8f0a46bb69704d6aace4179f9  # for no-nco deps, expanded range of pdsi
       - git+https://github.com/altair-viz/altair_data_server.git  # for remote hosting
-      - git+https://github.com/carbonplan/cmip6-downscaling.git@05a5ee68d15285ed93f2b030be8486d76e831b1b
+      - git+https://github.com/carbonplan/cmip6-downscaling.git@a3076db44c8df3eb0e0426780040185220b4351f
       - git+https://github.com/edjdavid/intake-excel.git
