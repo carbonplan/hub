@@ -20,7 +20,7 @@ dependencies:
   - fuzzywuzzy
   - fire
   - gcsfs
-  - gdal=2.4.2
+  - gdal  #=2.4.2
   - geopandas
   - geoviews
   - git-crypt
@@ -44,7 +44,7 @@ dependencies:
   - jupyterlab=2.2.9
   - jupyter-server-proxy
   - jupyter-vscode-proxy
-  - libgdal=2.4.2
+  - libgdal  #=2.4.2
   - matplotlib
   - metpy
   - mpl-probscale
@@ -71,7 +71,7 @@ dependencies:
   - pytest
   - python-graphviz
   - python-wget
-  - rasterio=1.0.25
+  - rasterio  #=1.0.25
   - rechunker
   - regionmask
   - richdem
