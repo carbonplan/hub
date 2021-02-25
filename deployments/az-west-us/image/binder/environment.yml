@@ -63,11 +63,11 @@ dependencies:
   - pydap
   - pykdtree
   - pygraphviz
+  - pygeos
   - pyproj
   - pyresample
   - pysal
   - pystac
-  - pystan
   - pytest
   - python-graphviz
   - python-wget
