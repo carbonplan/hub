@@ -61,6 +61,20 @@ pangeo:
                     'mem_guarantee': '120G',
                 }
             },
+            {
+                'display_name': 'ML large (n1-highmem-8 | 8 cores, 52GB)',
+                'kubespawner_override': {
+                    'image': 'pangeo/ml-notebook:latest',
+                    'cpu_limit': 8,
+                    'cpu_guarantee': 2,
+                    'mem_limit': '50G',
+                    'mem_guarantee': '26G',
+                    'environment': {'NVIDIA_DRIVER_CAPABILITIES': 'compute,utility'},
+                    'tolerations': [{'key': 'nvidia.com/gpu','operator': 'Equal','value': 'present','effect': 'NoSchedule'}]
+                    'extra_resource_limits': {"nvidia.com/gpu": "1"}
+                }
+            },
+
           ]
     auth:
       type: custom
