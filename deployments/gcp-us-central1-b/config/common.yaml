@@ -61,6 +61,26 @@ pangeo:
                     'mem_guarantee': '120G',
                 }
             },
+            {
+                'display_name': 'TRACE: large (n1-highmem-8 | 8 cores, 52GB)',
+                'kubespawner_override': {
+                    'image': 'carbonplan/trace-python-notebook:main',
+                    'cpu_limit': 8,
+                    'cpu_guarantee': 2,
+                    'mem_limit': '50G',
+                    'mem_guarantee': '26G',
+                }
+            },
+            {
+                'display_name': 'TRACE: very large (n1-highmem-16 | 16 cores, 128GB)',
+                'kubespawner_override': {
+                    'image': 'carbonplan/trace-python-notebook:sha-3dae342',
+                    'cpu_limit': 16,
+                    'cpu_guarantee': 2,
+                    'mem_limit': '128G',
+                    'mem_guarantee': '120G',
+                }
+            },
           ]
     auth:
       type: custom
