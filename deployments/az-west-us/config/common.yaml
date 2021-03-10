@@ -1,14 +1,46 @@
-pangeo:
+daskhub:
   jupyterhub:
     singleuser:
       cloudMetadata:
         enabled: true
-      cpu:
-        limit: 4
-        guarantee: 1
-      memory:
-        limit: 14G
-        guarantee: 4G
+      profileList:
+        - display_name: "small (2 cores, 12GB)"
+          default: "True"
+          description: "Foo"
+          kubespawner_override:
+            cpu_limit: 2
+            cpu_guarantee: 2
+            mem_limit: 12G
+            mem_guarantee: 12G
+        - display_name: "standard (4 cores, 24GB)"
+          description: "Foo"
+          kubespawner_override:
+            cpu_limit: 4
+            cpu_guarantee: 4
+            mem_limit: 24G
+            mem_guarantee: 24G
+        - display_name: "large (8 cores, 52GB)"
+          description: "Foo"
+          kubespawner_override:
+            cpu_limit: 8
+            cpu_guarantee: 8
+            mem_limit: 52G
+            mem_guarantee: 52G
+        - display_name: "very large (32 cores, 256GB)"
+          description: "Foo"
+          kubespawner_override:
+            cpu_limit: 32
+            cpu_guarantee: 32
+            mem_limit: 256G
+            mem_guarantee: 256G
+        - display_name': 'R-Notebook (32 cores, 256GB)'
+          description: "Foo"
+          kubespawner_override:
+            image: carbonplan/r-retro-notebook:latest
+            cpu_limit: 32
+            cpu_guarantee: 32
+            mem_limit: 256G
+            mem_guarantee: 256G
 
     hub:
       resources:
@@ -21,66 +53,6 @@ pangeo:
       extraConfig:
         azure: |
           c.KubeSpawner.start_timeout = 60 * 20 # 20-minute timeout for Azure (!)
-        profile_list: |
-          c.KubeSpawner.profile_list = [
-            {
-                'display_name': 'small (2 cores, 12GB)',
-                'kubespawner_override': {
-                    'cpu_limit': 2,
-                    'cpu_guarantee': 2,
-                    'mem_limit': '12G',
-                    'mem_guarantee': '12G',
-                }
-            },
-            {
-                'display_name': 'standard (4 cores, 24GB)',
-                'kubespawner_override': {
-                    'cpu_limit': 4,
-                    'cpu_guarantee': 4,
-                    'mem_limit': '24G',
-                    'mem_guarantee': '24G',
-                }
-            },
-            {
-                'display_name': 'large (8 cores, 52GB)',
-                'kubespawner_override': {
-                    'cpu_limit': 8,
-                    'cpu_guarantee': 2,
-                    'mem_limit': '50G',
-                    'mem_guarantee': '26G',
-                }
-            },
-            {
-                'display_name': 'very large (32 cores, 256GB)',
-                'kubespawner_override': {
-                    'cpu_limit': 32,
-                    'cpu_guarantee': 32,
-                    'mem_limit': '256G',
-                    'mem_guarantee': '128G',
-                }
-            },
-            # {
-            #     'display_name': 'R-Notebook (4 cores, 24GB)',
-            #     'kubespawner_override': {
-            #         'image': 'jupyter/r-notebook:latest',
-            #         'cpu_limit': 4,
-            #         'cpu_guarantee': 4,
-            #         'mem_limit': '24G',
-            #         'mem_guarantee': '24G',
-
-            #     }
-            # },
-            {
-                'display_name': 'R-Notebook (32 cores, 256GB)',
-                'kubespawner_override': {
-                    'image': 'carbonplan/r-retro-notebook:latest',
-                    'cpu_limit': 32,
-                    'cpu_guarantee': 32,
-                    'mem_limit': '256G',
-                    'mem_guarantee': '128G',
-                }
-            },
-          ]
 
     auth:
       type: custom
@@ -110,7 +82,6 @@ pangeo:
           - freyac
           - tcchiao
           - badgley
-          - anderegg
 
   dask-gateway:
     gateway:

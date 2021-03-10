@@ -1,45 +1,20 @@
-pangeo:
-  # Pangeo configuration values
-  # --------------------
-  # The following configuration options are specifically for the custom Pangeo components.
-  # Some values will be inherited into the dependent chart configs. See requirements.yaml for info.
-
-  # Create and use roles and service accounts on an RBAC enabled cluster.
+daskhub:
   rbac:
     enabled: true
-
-
-  # Dependency configuration values
-  # -------------------------------
-  # To configure dependencies you must create a key with the name of the dependency
-  # and then configure as per the dependent chart's values.yaml. Don't forget to indent!
-
   jupyterhub:
-    # Helm config for jupyterhub goes here
-    # See https://github.com/jupyterhub/zero-to-jupyterhub-k8s/blob/master/jupyterhub/values.yaml
     hub:
-      image:
-        name: carbonplan/hub
-        tag: latest
       allowNamedServers: true
     singleuser:
-      image:
-        name: carbonplan/notebook
-        tag: latest
-      cpu:
-        limit: 2
-        guarantee: 1
-      memory:
-        limit: 4G
-        guarantee: 2G
       extraEnv:
         # The default worker image matches the singleuser image.
         DASK_GATEWAY__CLUSTER__OPTIONS__IMAGE: '{JUPYTER_IMAGE_SPEC}'
-        DASK_GATEWAY__AUTH__TYPE: 'jupyterhub'
+        DASK_DISTRIBUTED__DASHBOARD_LINK: '/user/{JUPYTERHUB_USER}/proxy/{port}/status'
+        DASK_LABEXTENSION__FACTORY__MODULE: 'dask_gateway'
+        DASK_LABEXTENSION__FACTORY__CLASS: 'GatewayCluster'
       serviceAccountName: pangeo
 
     prePuller:
-      continuous:
+      hook:
         enabled: false
 
     scheduling:
@@ -57,22 +32,55 @@ pangeo:
         enabled: true
       userPlaceholder:
         enabled: false
-  dask-gateway:
-    gateway:
-      backend:
-        scheduler:
-          extraPodConfig:
-            serviceAccountName: pangeo
-        worker:
-          extraContainerConfig:
-            securityContext:
-              runAsGroup: 1000
-              runAsUser: 1000
-          extraPodConfig:
-            serviceAccountName: pangeo
-            automountServiceAccountToken: true
-            securityContext:
-              fsGroup: 1000
+      extraConfig:
+        optionHandler: |
+          from dask_gateway_server.options import Options, Float, String, Mapping
+          def cluster_options(user):
+              def option_handler(options):
+                  if ":" not in options.image:
+                      raise ValueError("When specifying an image you must also provide a tag")
+                  extra_annotations = {
+                      "hub.jupyter.org/username": user.name,
+                      "prometheus.io/scrape": "true",
+                      "prometheus.io/port": "8787",
+                  }
+                  extra_labels = {
+                      "hub.jupyter.org/username": user.name,
+                  }
+                  # We multiply the requests by 0.95 to ensure that that they
+                  # pack well onto nodes. Kubernetes reserves a small fraction
+                  # of the memory / CPU for itself, so the common situation of
+                  # a node with 4 cores and a user requesting 4 cores means
+                  # we request just over half of the *allocatable* CPU, and so
+                  # we can't pack more than 1 worker on that node.
+                  # On GCP, the kubernetes requests are ~12% of the CPU.
+                  return {
+                      "worker_cores": 0.88 * min(options.worker_cores / 2, 1),
+                      "worker_cores_limit": options.worker_cores,
+                      "worker_memory": "%fG" % (0.95 * options.worker_memory),
+                      "worker_memory_limit": "%fG" % options.worker_memory,
+                      "image": options.image,
+                      "scheduler_extra_pod_annotations": extra_annotations,
+                      "worker_extra_pod_annotations": extra_annotations,
+                      "scheduler_extra_pod_labels": extra_labels,
+                      "worker_extra_pod_labels": extra_labels,
+                      "environment": options.environment,
+                  }
+              return Options(
+                  Float("worker_cores", 2, min=1, max=16, label="Worker Cores"),
+                  Float("worker_memory", 8, min=1, max=32, label="Worker Memory (GiB)"),
+                  String("image", default="pangeo/pangeo-notebook:latest", label="Image"),
+                  Mapping("environment", {}, label="Environment Variables"),
+                  handler=option_handler,
+              )
+          c.Backend.cluster_options = cluster_options
+        idle: |
+          # timeout after 30 minutes of inactivity
+          c.KubeClusterConfig.idle_timeout = 1800
+        limits: |
+          # per Dask cluster limits.
+          c.ClusterConfig.cluster_max_cores = 100
+          c.ClusterConfig.cluster_max_memory = "600G"
 
 homeDirectories:
   nfs:
