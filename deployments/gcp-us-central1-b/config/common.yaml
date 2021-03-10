@@ -74,7 +74,7 @@ pangeo:
             {
                 'display_name': 'TRACE: very large (n1-highmem-16 | 16 cores, 128GB)',
                 'kubespawner_override': {
-                    'image': 'carbonplan/trace-python-notebook:main',
+                    'image': 'carbonplan/trace-python-notebook:sha-3dae342',
                     'cpu_limit': 16,
                     'cpu_guarantee': 2,
                     'mem_limit': '128G',
