@@ -59,21 +59,40 @@ pangeo:
                     'mem_guarantee': '128G',
                 }
             },
-            # {
-            #     'display_name': 'R-Notebook (4 cores, 24GB)',
-            #     'kubespawner_override': {
-            #         'image': 'jupyter/r-notebook:latest',
-            #         'cpu_limit': 4,
-            #         'cpu_guarantee': 4,
-            #         'mem_limit': '24G',
-            #         'mem_guarantee': '24G',
-
-            #     }
-            # },
             {
                 'display_name': 'R-Notebook (32 cores, 256GB)',
                 'kubespawner_override': {
                     'image': 'carbonplan/r-retro-notebook:latest',
+                    'cpu_limit': 32,
+                    'cpu_guarantee': 32,
+                    'mem_limit': '256G',
+                    'mem_guarantee': '128G',
+                }
+            },
+            {
+                'display_name': 'RETRO: R-Notebook (32 cores, 256GB)',
+                'kubespawner_override': {
+                    'image': 'carbonplan/retro-r-notebook:main',
+                    'cpu_limit': 32,
+                    'cpu_guarantee': 32,
+                    'mem_limit': '256G',
+                    'mem_guarantee': '128G',
+                }
+            },
+            {
+                'display_name': 'RETRO: large (8 cores, 52GB)',
+                'kubespawner_override': {
+                    'image': 'carbonplan/retro-python-notebook:main'
+                    'cpu_limit': 8,
+                    'cpu_guarantee': 2,
+                    'mem_limit': '50G',
+                    'mem_guarantee': '26G',
+                }
+            },
+            {
+                'display_name': 'RETRO: very large (32 cores, 256GB)',
+                'kubespawner_override': {
+                    'image': 'carbonplan/retro-python-notebook:main'
                     'cpu_limit': 32,
                     'cpu_guarantee': 32,
                     'mem_limit': '256G',
