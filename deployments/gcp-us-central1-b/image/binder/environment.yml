@@ -101,6 +101,7 @@ dependencies:
       - carbonplan-data
       - carbonplan-forests
       - carbonplan-styles
+      - carbonplan-trace
       - numbagg
       - rio-tiler-mvt
       - showit
