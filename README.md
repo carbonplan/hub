@@ -30,7 +30,7 @@ This repository is CarbonPlan's internal Fork of the [Pangeo-Cloud-Federation](h
 
 ## license
 
-All the code in this repository is [MIT](https://choosealicense.com/licenses/mit/) licensed. \
+All the code in this repository is [MIT](https://choosealicense.com/licenses/mit/) licensed.
 
 ## about us
 
