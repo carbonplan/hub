@@ -19,7 +19,7 @@ jobs:
 
 
       - name: pull-request
-        uses: repo-sync/pull-request@v2
+        uses: repo-sync/pull-request@v2.6
         with:
           source_branch: "staging"
           destination_branch: "prod"
