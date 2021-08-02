@@ -110,7 +110,7 @@ pangeo:
           - freyac
           - tcchiao
           - badgley
-          - anderegg
+          - norlandrhagen
 
   dask-gateway:
     gateway:
