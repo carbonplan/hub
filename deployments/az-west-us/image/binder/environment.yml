@@ -26,6 +26,7 @@ dependencies:
   - hvplot
   - intake
   - intake-esm
+  - intake-excel
   - intake-geopandas
   - intake-parquet
   - intake-stac
@@ -93,5 +94,4 @@ dependencies:
       - git+https://github.com/jhamman/zarr.git@fix/absstore  # for current version of azure api
       - git+https://github.com/jhamman/climate_indices.git@39bbf038c77922f8f0a46bb69704d6aace4179f9  # for no-nco deps, expanded range of pdsi
       - git+https://github.com/altair-viz/altair_data_server.git  # for remote hosting
-      - git+https://github.com/carbonplan/cmip6-downscaling.git@a3076db44c8df3eb0e0426780040185220b4351f
-      - git+https://github.com/edjdavid/intake-excel.git
+      - git+https://github.com/carbonplan/cmip6-downscaling.git@e8cc4ad89ed3da47a1e46ccc441cdda8eebbc152

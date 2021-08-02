@@ -64,7 +64,7 @@ pangeo:
             {
                 'display_name': 'TRACE: large (n1-highmem-8 | 8 cores, 52GB)',
                 'kubespawner_override': {
-                    'image': 'carbonplan/trace-python-notebook:main',
+                    'image': 'carbonplan/trace-python-notebook:sha-71540c6',
                     'cpu_limit': 8,
                     'cpu_guarantee': 2,
                     'mem_limit': '50G',
@@ -74,7 +74,7 @@ pangeo:
             {
                 'display_name': 'TRACE: very large (n1-highmem-16 | 16 cores, 128GB)',
                 'kubespawner_override': {
-                    'image': 'carbonplan/trace-python-notebook:sha-3dae342',
+                    'image': 'carbonplan/trace-python-notebook:sha-71540c6',
                     'cpu_limit': 16,
                     'cpu_guarantee': 2,
                     'mem_limit': '128G',
@@ -110,7 +110,7 @@ pangeo:
           - freyac
           - tcchiao
           - badgley
-          - anderegg
+          - norlandrhagen
 
   dask-gateway:
     gateway:
