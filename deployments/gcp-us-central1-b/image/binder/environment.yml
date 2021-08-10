@@ -18,7 +18,7 @@ dependencies:
   - code-server >=3.2
   - cython=0.28  # for vtzero
   - fastparquet
-  # - fuzzywuzzy
+  - fuzzywuzzy
   # - fire
   - gcsfs
   - gdal #=2.4.2
