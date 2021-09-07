@@ -7,6 +7,7 @@ dependencies:
   - adlfs
   - altair
   - altair_data_server
+  - azure-storage-blob >12.8.1
   # - astropy
   # - awscli
   - boto3
