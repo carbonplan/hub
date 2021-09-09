@@ -1,7 +1,7 @@
 hubploy == 0.1.1
 jupyter-repo2docker == 2021.3.0
 pygithub == 1.54.1
-azure-cli == 2.19.1
+azure-cli == 2.28.1
 awscli == 1.18.190
 urllib3 == 1.25.11
 chardet == 4.0.0
