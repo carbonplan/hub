@@ -56,10 +56,10 @@ jobs:
       with:
         version: '290.0.1'
 
-    - name: setup azure cli
-      run: |
-        curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-        az --version
+    # - name: setup azure cli
+    #   run: |
+    #     curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+    #     az --version
 
     - name: Unlock secrets
       uses: sliteteam/github-action-git-crypt-unlock@1.2.0
@@ -70,9 +70,9 @@ jobs:
       timeout-minutes: 120
       run: hubploy build gcp-us-central1-b --check-registry --push
 
-    - name: Build az-west-us image if needed
-      timeout-minutes: 120
-      run: hubploy build az-west-us --check-registry --push 2> /dev/null
+    # - name: Build az-west-us image if needed
+    #   timeout-minutes: 120
+    #   run: hubploy build az-west-us --check-registry --push 2> /dev/null
 
     - name: Install helm
       run: |
@@ -90,10 +90,10 @@ jobs:
         echo "hubploy deploy --cleanup-on-fail --namespace ${GITHUB_REF##*/} gcp-us-central1-b pangeo-deploy ${GITHUB_REF##*/}"
         hubploy deploy --cleanup-on-fail --namespace ${GITHUB_REF##*/} gcp-us-central1-b pangeo-deploy ${GITHUB_REF##*/}
 
-    - name: Deploy az-west-us
-      run: |
-        echo "hubploy deploy --cleanup-on-fail --namespace az-west-us-${GITHUB_REF##*/} az-west-us pangeo-deploy ${GITHUB_REF##*/}"
-        hubploy deploy --cleanup-on-fail --namespace az-west-us-${GITHUB_REF##*/} az-west-us pangeo-deploy ${GITHUB_REF##*/} 2> /dev/null
+    # - name: Deploy az-west-us
+    #   run: |
+    #     echo "hubploy deploy --cleanup-on-fail --namespace az-west-us-${GITHUB_REF##*/} az-west-us pangeo-deploy ${GITHUB_REF##*/}"
+    #     hubploy deploy --cleanup-on-fail --namespace az-west-us-${GITHUB_REF##*/} az-west-us pangeo-deploy ${GITHUB_REF##*/} 2> /dev/null
 
     - name: Update deployment status (success)
       if: success()
