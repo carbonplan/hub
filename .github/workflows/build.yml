@@ -15,7 +15,7 @@ jobs:
         sudo apt-get install --yes -qq git-crypt jq golang-go
 
     - name: Checkout Repository
-      uses: actions/checkout@v2.3.4
+      uses: actions/checkout@v2.3.5
       with:
         fetch-depth: 0  # 0 indicates all history.
 
