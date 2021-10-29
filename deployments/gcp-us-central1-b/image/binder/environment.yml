@@ -32,7 +32,7 @@ dependencies:
   - hvplot
   # - hypothesis
   - intake
-  # - intake-esm
+  - intake-esm
   - intake-geopandas
   - intake-parquet
   - intake-stac
