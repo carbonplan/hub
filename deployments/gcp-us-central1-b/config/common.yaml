@@ -81,6 +81,16 @@ pangeo:
                     'mem_guarantee': '120G',
                 }
             },
+            {
+                'display_name': 'CMIP6: very large (n1-highmem-8 | 8 cores, 52GB)',
+                'kubespawner_override': {
+                    'image': 'carbonplan/cmip6-downscaling-single-user:latest',
+                    'cpu_limit': 8,
+                    'cpu_guarantee': 2,
+                    'mem_limit': '50G',
+                    'mem_guarantee': '26G',
+                }
+            },
           ]
     auth:
       type: custom
