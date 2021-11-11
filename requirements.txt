@@ -1,4 +1,4 @@
-hubploy == 0.1.1
+hubploy == 0.4
 jupyter-repo2docker == 2021.8.0
 pygithub == 1.54.1
 azure-cli == 2.19.1
