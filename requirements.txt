@@ -4,4 +4,4 @@ pygithub == 1.54.1
 azure-cli == 2.19.1
 awscli == 1.18.190
 urllib3 == 1.25.11
-chardet == 4.0.0
+chardet == 5.0.0
